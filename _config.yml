@@ -28,7 +28,8 @@ twitter_username: kelvinvalencio
 github_username:  kelvinvalencio
 
 # Build settings
-theme: minima
+# Remove remote theme
+# theme: minima
 plugins:
   - jekyll-feed
 
