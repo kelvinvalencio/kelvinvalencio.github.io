@@ -4,7 +4,7 @@ title:  "HarvardX CS50/CS50x Introduction to Computer Science course - What You 
 date:   2021-12-06 16:13:00 +0700
 categories: blog/en
 ---
-<center><img src="https://i.imgur.com/vhpyGlz.png"></center>
+<center><img src="https://i.imgur.com/vhpyGlz.png" alt="CS50 photo"></center>
 If you're interested in taking the course, [go to this EDx page](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) or [go to this official page for CS50x](https://cs50.harvard.edu/x/)
 
 CS50x is one of the largest Computer Science course provided by HarvardX, it's available online and is free. 
@@ -30,7 +30,7 @@ After reflecting back on it, I'm somewhere in between calling it difficult. It's
 David J. Malan, the lecturer of this course, did a great job teaching this course, the crew also did a great job visualizing lots of concepts to know. The lectures is done very well in explaining things and make them very exciting.
 
 ## What You Get
-<center><img src="https://i.imgur.com/ch01NLA.png" width="370" height="269"></center>
+<center><img src="https://i.imgur.com/ch01NLA.png" width="370" height="269" alt="CS50 certificate"></center>
 After taking this course, you're going to be much more familiar with hands-on technologies such as C and Python Programming Language, solving problems using algorithms, and you'll have some insight into how computers use memory to store data, and some insight into Web Development.
 
 
