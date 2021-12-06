@@ -18,14 +18,19 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Kelvin Valencio Blog
-email: kelvinvalencio@gmail.com
+title: Kelvin Valencio's Github Blog
+email: kelvinvalencio@protonmail.com
 description: >- # this means to ignore newlines until "baseurl:"
-  Some posts about IT & Other things
+  Some blog posts about IT & Other things
 baseurl: "/" # the subpath of your site, e.g. /blog
 url: "https://kelvinvalencio.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: kelvinvalencio
 github_username:  kelvinvalencio
+linkedin_username: kelvinvalencio
+instagram_username: kelvinvalencio
+
+# Author settings
+author: Kelvin Valencio
 
 # Build settings
 # Remove remote theme

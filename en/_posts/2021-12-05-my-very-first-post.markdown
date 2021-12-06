@@ -2,7 +2,7 @@
 layout: post
 title:  "My Very First Post"
 date:   2021-12-06 00:35:00 +0700
-categories: blog/en
+category: en
 ---
 Hello, world! This is my very first post. It took a while to set up this Github Page along with the Jekyll tool, granted, I'm not a very fast learner. While I try getting used to this markdown syntax, I shall tell the world a little about myself in this very first post.
 
