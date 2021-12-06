@@ -2,7 +2,7 @@
 layout: post
 title:  "HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know"
 date:   2021-12-06 16:13:00 +0700
-categories: blog
+categories: blog/en
 ---
 <center><img src="https://i.imgur.com/vhpyGlz.png"></center>
 If you're interested in taking the course, [go to this EDx page](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) or [go to this official page for CS50x](https://cs50.harvard.edu/x/)
