@@ -61,7 +61,7 @@ Umumnya pembuatan XDF dilakukan dengan menganalisa `.bin` mentah, umumnya menggu
 
 ### File XDF untuk CBR250RR
 Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
-Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download gratis disini.</a>
+Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="https://kelvinvalencio.github.io/projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download gratis disini.</a>
 
 Untuk cara menganalisa dan membuat XDF sendiri mungkin bakal saya bahas di postingan mendatang.
 
