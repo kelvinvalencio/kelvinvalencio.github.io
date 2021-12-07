@@ -1,15 +1,18 @@
 ---
 layout: post
-title:  "Berbagi Pengalaman Remap/Reflash CBR250RR Sendiri Modal Rp 650.000"
+title:  "Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah"
 date:   2021-12-07 15:33:32 +0700
 category: id
 author: Kelvin Valencio
 ---
-![Illustration: WinOLS on CBR250RR N04 Binary](/assets/images/remap-cbr250rr-sendiri-winols.jpg)  
+![Remap CBR250RR sendiri modal 650 Ribu](/assets/images/remap-cbr250rr-sendiri-winols.jpg)  
 
-Remapping ECU bawaan motor belakangan ini lagi hot, dan umum banget. Orang-orang memilih remap sebagai cara upgrade performa.
-Saya sendiri melakukan DIY remap karena penasaran dengan parameter ECU apa saja yang bisa diubah. Tapi harga remap CBR250RR sendiri kisaran *1 Jutaan* di bengkel-bengkel.  
-Jadi saya belajar untuk remap/reflash sendiri. Selain murah, saya punya kebebasan mau remap berapa kali tanpa bayar lagi.  
+Remapping ECU bawaan motor belakangan ini lagi hot, dan umum banget. Orang-orang memilih remap sebagai cara upgrade performa.  
+Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade performa, tapi harga remap CBR250RR di bengkel-bengkel kisaran **1 jutaan** untuk 1x remap.  
+
+Jadi saya coba research untuk remap/reflash sendiri selama beberapa minggu. Selain murah, <ins>saya punya kebebasan mau remap berapa kali tanpa bayar lagi</ins>.  
+
+Karena kepuasan saya melakukan DIY remap, akan saya bahas di postingan ini, gambaran besar tentang reflashing/remapping hingga langkah-langkah persisnya khusus untuk model motor ini.
 
 ## **Resiko, Saran, Peringatan**
 - Resiko terburuk bisa merusak ECU dan merusak motor
