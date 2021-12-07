@@ -5,20 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="p1E5Y7Ps3AeCKLcOE1gWXtRCXl8gkaZZSVr57DNwWoQ" />
   <link rel="icon" type="image/png" href="/assets/logo.png" /><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Projects | Kelvin Valencio’s Github Blog</title>
+<title>CBR250RR Stock ECU Binary Definition and XDF | Kelvin Valencio’s Github Blog</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Projects" />
+<meta property="og:title" content="CBR250RR Stock ECU Binary Definition and XDF" />
 <meta name="author" content="Kelvin Valencio" />
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Some blog posts about IT &amp; Other things" />
 <meta property="og:description" content="Some blog posts about IT &amp; Other things" />
-<link rel="canonical" href="http://localhost:4000/projects/" />
-<meta property="og:url" content="http://localhost:4000/projects/" />
+<link rel="canonical" href="http://localhost:4000/projects/cbr250rr-ecu-binary-definition.html" />
+<meta property="og:url" content="http://localhost:4000/projects/cbr250rr-ecu-binary-definition.html" />
 <meta property="og:site_name" content="Kelvin Valencio’s Github Blog" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Projects" />
+<meta property="twitter:title" content="CBR250RR Stock ECU Binary Definition and XDF" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/projects/","headline":"Projects","author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"WebPage","description":"Some blog posts about IT &amp; Other things","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/projects/cbr250rr-ecu-binary-definition.html","headline":"CBR250RR Stock ECU Binary Definition and XDF","author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"WebPage","description":"Some blog posts about IT &amp; Other things","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kelvin Valencio&apos;s Github Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -41,16 +41,49 @@
         <article class="post">
 
   <header class="post-header">
-    <h1 class="post-title">Projects</h1>
+    <h1 class="post-title">CBR250RR Stock ECU Binary Definition and XDF</h1>
   </header>
 
   <div class="post-content">
-    <h1 id="cbr250rr-ecu-binary-definition">CBR250RR-ECU-BINARY-DEFINITION</h1>
-<h3 id="this-is-my-hexdump-analysis-on-cbr250rr-38770-k64-n04-stock-ecu">This is my hexdump analysis on CBR250RR 38770-K64-N04 Stock ECU</h3>
+    <h2 id="cbr250rr-stock-ecu-binary-definition-and-xdf">CBR250RR Stock ECU Binary Definition and XDF</h2>
 
-<p>You can find the documentation and the free XDF file at GitHub:
-<a href="cbr250rr-ecu-binary-definition/">Github Page</a> /
-<a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition">Github Repo</a></p>
+<h1 id="ℹ️-about">ℹ️ About</h1>
+<p>I find it difficult to flash my bike’s ECU because the definition file is not available for free. The ones sold on the Internet cost a lot and are not really complete. So I decided to analyze the binary myself and publish the known definition, which address does what.<br />
+<br /><strong>This information wasn’t publicly available on th Internet at the time of my first publication</strong>, so my hope is that this project will be able to help individual/user/amateur tuners tune their own bike.
+The goal of this project is to make public this definition and improve them(mappings and their categorization).</p>
+
+<p>Your help is one of the most important aspect of this project, there are a lot of maps that could be grouped to certain Gear, Riding Modes, etc.</p>
+
+<h1 id="how-to-help-improve">How to Help Improve</h1>
+<ol>
+  <li>Go to the <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition">repository page</a></li>
+  <li>Test the free-to-downlaod XDF that I released <strong>OR</strong> read the definition tables in the repository page</li>
+  <li>If you find something, go to the <strong>discussions</strong> tab and click on <strong>new discussion</strong> or report to me</li>
+  <li>I will revise the XDF and the definition tables</li>
+</ol>
+
+<h1 id="scope">Scope</h1>
+<p>Supported ECU Model is <strong>38770-K64-N04</strong>. Original bin checksum value: <strong>C2FF</strong></p>
+
+<h1 id="-binary-definition--xdf-release">📄📑 Binary Definition &amp; XDF Release</h1>
+<p><img src="https://i.imgur.com/eSzodMs.png" alt="XDF Parameter Tree" />
+I have released a usable XDF for 38770-K64-N04 and is free to download. I also published the whole binary definition that includes fuel map, ignition map, limiters, and more.
+XDF Download &amp; definition is available in the <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition">Github repository page</a></p>
+
+<h1 id="warning">Warning</h1>
+<ul>
+  <li>I’m not responsible for any damage/consequences that occurs. This documentation is aimed to be a guide for individual/user/amateur tuners.</li>
+  <li>Some if not all information published here might not be accurate or straight up incorrect, anything that you do with this information is entirely your responsibility, with that in mind, I very much accept corrections. If you find any inaccurate information, I will make sure to revise them.</li>
+</ul>
+
+<h1 id="tags">Tags</h1>
+<ul>
+  <li>CBR250RR Mapping / CBR250RR Map / CBR250RR XDF</li>
+  <li>CBR250RR Stock ECU Binary Definition for Reflashing or Remapping</li>
+  <li>CBR250RR Reflashing / CBR250RR Remapping / CBR250RR Mapping Data</li>
+  <li>38770-K64-N04 XDF File / CBR250RR XDF</li>
+  <li>CBR250RR Download XDF</li>
+</ul>
 
   </div>
 

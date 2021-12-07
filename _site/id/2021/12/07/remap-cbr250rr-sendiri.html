@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="p1E5Y7Ps3AeCKLcOE1gWXtRCXl8gkaZZSVr57DNwWoQ" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000 | Kelvin Valencio’s Github Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000" />
+<meta name="author" content="Kelvin Valencio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Some blog posts about IT &amp; Other things" />
+<meta property="og:description" content="Some blog posts about IT &amp; Other things" />
+<link rel="canonical" href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" />
+<meta property="og:url" content="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" />
+<meta property="og:site_name" content="Kelvin Valencio’s Github Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2021-12-07T15:33:32+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000" />
+<script type="application/ld+json">
+{"mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html"},"url":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html","headline":"Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000","dateModified":"2021-12-07T15:33:32+07:00","datePublished":"2021-12-07T15:33:32+07:00","author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"BlogPosting","description":"Some blog posts about IT &amp; Other things","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kelvin Valencio&apos;s Github Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/"><img src="/assets/logo.png">Kelvin Valencio&#39;s Github Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2021-12-07T15:33:32+07:00" itemprop="datePublished">Dec 7, 2021
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Kelvin Valencio</span></span></p>
+      
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/assets/images/remap-cbr250rr-sendiri-winols.jpg" alt="Illustration: WinOLS on CBR250RR N04 Binary" /></p>
+
+<p>Remapping ECU bawaan motor belakangan ini lagi hot, dan umum banget. Orang-orang memilih remap sebagai cara upgrade performa.
+Saya sendiri melakukan DIY remap karena penasaran dengan parameter ECU apa saja yang bisa diubah. Tapi harga remap CBR250RR sendiri kisaran <em>1 Jutaan</em> di bengkel-bengkel.<br />
+Jadi saya belajar untuk remap/reflash sendiri. Selain murah, saya punya kebebasan mau remap berapa kali tanpa bayar lagi.</p>
+
+<h2 id="resiko-saran-peringatan"><strong>Resiko, Saran, Peringatan</strong></h2>
+<ul>
+  <li>Resiko terburuk bisa merusak ECU dan merusak motor</li>
+  <li>Saya anjurkan dalam sebelum melaksanakan, pastikan kalian setidaknya kompeten menggunakan komputer</li>
+  <li>Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin punya langkah yang berbeda</li>
+  <li>Saya tidak bertanggung jawab atas konsekuensi dari percobaan yang kalian lakukan. Postingan ini ditujukan untuk panduan</li>
+  <li>Apabila informasi yang saya sediakan kurang/tidak akurat, yang kalian lakukan terhadap informasi ini bukan tanggung jawab saya, tapi saya menerima <em>feedback</em> untuk merevisi jika ada kesalahan</li>
+</ul>
+
+<h2 id="tools"><strong>Tools</strong></h2>
+<p>Berikut hardware dan software yang perlu disiapkan. Saran saya luangin waktu kalian buat cari-cari tool yang dijual dengan teliti supaya mendapatkan harga terbaik dan sesuai. Saya sendiri berhasil mencari kelengkapan alat-alat dengan budget tidak melebihi biaya remap di bengkel-bengkel.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th style="text-align: right">Harga</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Write Hardware/Alat Remap (K-Line Flash Tool)</td>
+      <td style="text-align: right">Rp 450.000</td>
+      <td><a href="https://shopee.co.id/product/277642167/5561381862?smtt=0.197913951-1638877447.9" target="_blank">Shopee</a></td>
+    </tr>
+    <tr>
+      <td>File Binary (<code class="language-plaintext highlighter-rouge">BIN</code>) dan Definition (<code class="language-plaintext highlighter-rouge">XDF</code>) untuk CBR250RR</td>
+      <td style="text-align: right"><del>Rp 1.000.000 - 2.000.000</del> <em>Free</em> dari saya</td>
+      <td><a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">Download Disini</a></td>
+    </tr>
+    <tr>
+      <td>Write Software (HondaECU 3.02, 3.5x, atau HondaFlasher)</td>
+      <td style="text-align: right">Rp 600.000 - 1.000.000</td>
+      <td><a href="https://www.tokopedia.com/search?st=product&amp;q=honda%20flash&amp;navsource=home" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: right">Rp 200.000</td>
+      <td>Kontak saya untuk write software 200.000</td>
+    </tr>
+    <tr>
+      <td>TunerPro Free</td>
+      <td style="text-align: right"><em>Free</em></td>
+      <td><a href="https://www.tunerpro.net/downloadApp.htm" target="_blank">TunerPro Download Page</a></td>
+    </tr>
+    <tr>
+      <td><strong>Total Termurah</strong></td>
+      <td style="text-align: right"><strong>Rp 650.000</strong></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 id="overview"><strong>Overview</strong></h2>
+<h3 id="tunerpro-file-bin-dan-file-xdf">TunerPro, File .bin, dan File .xdf</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">TunerPro</code> adalah software untuk mengubah mapping sesuka kalian. <code class="language-plaintext highlighter-rouge">TunerPro</code> memerlukan <code class="language-plaintext highlighter-rouge">BIN</code> yang akan di edit, dan <code class="language-plaintext highlighter-rouge">XDF</code> yang mendefinisikan parameter yang ada di ECU.</li>
+  <li><code class="language-plaintext highlighter-rouge">BIN</code> adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Didalamnya ada pengaturan seperti:
+    <ul>
+      <li>Mapping bensin</li>
+      <li>Mapping pengapian</li>
+      <li>Pengaturan limiter RPM</li>
+      <li>Dan masih banyak lagi</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">XDF</code> adalah file Definition yang menjelaskan letak alamat mapping yang ada di <code class="language-plaintext highlighter-rouge">BIN</code>. <strong>File XDF beda-beda tiap motor</strong>, karena beda <code class="language-plaintext highlighter-rouge">BIN</code> tentunya beda <code class="language-plaintext highlighter-rouge">XDF</code> karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di <code class="language-plaintext highlighter-rouge">BIN</code>.</li>
+</ul>
+
+<h3 id="sebenernya-binary-patching">Sebenernya Binary Patching</h3>
+<p>Jadi ketika kita melakukan remap/reflash, kurang lebih kita melakukan yang disebut <a href="https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/" target="_blank">binary patching atau patching</a>.<br />
+Simpelnya, kita membaca nilai-nilai yang ada di file mentah <code class="language-plaintext highlighter-rouge">BIN</code> tersebut, lalu kita ubah nilainya, lalu kita kirim kembali ke ECU!</p>
+
+<h3 id="tentang-checksum">Tentang Checksum</h3>
+<p>Checksum pada ECU umumnya adalah rentang alamat khusus yang berisi nilai checksum, untuk menentukan integritas dari binary.<br />
+Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan value yang ada di mapping, dll. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya <em>harus dihitung ulang</em>.</p>
+
+<p>Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun software write seperti <a href="https://mcuinnovations.com/software/hondaecu/" target="_blank">HondaECU</a> sudah dapat melakukan <strong>checksum correction</strong> secara sendirinya. Jadi saat binary yang sudah diubah hendak dikirim ke ECU, software write tertentu secara diam-diam mengubah lagi nilai checksum sesuai dengan kalkulasi yang sebetulnya.</p>
+
+<h3 id="siapa-yang-bikin-xdf-gimana-bikin-xdf">Siapa Yang Bikin XDF? Gimana Bikin XDF?</h3>
+<p>XDF itu dibuat oleh orang biasa, kalian juga bisa bikin XDF sendiri. Untuk kendaraan tertentu, ada XDF yang lengkap, ada XDF yang kurang lengkap.<br />
+Biasanya XDF itu diperjualbelikan oleh orang yang meluangkan waktunya untuk menganalisa file <code class="language-plaintext highlighter-rouge">.bin</code> kendaraan tertentu.<br />
+Umumnya pembuatan XDF dilakukan dengan menganalisa <code class="language-plaintext highlighter-rouge">.bin</code> mentah, biasanya menggunakan software seperti <a href="https://www.evc.de/en/product/ols/software/" target="_blank">WinOLS</a>, yang bisa membantu mengelompokkan mapping berdasarkan pola yang ada di file tersebut.</p>
+
+<p>Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download gratis disini.</a></p>
+
+<p>Untuk cara menganalisa dan membuat XDF sendiri mungkin bakal saya bahas di postingan mendatang.</p>
+
+<h3 id="flashing-ke-ecu">Flashing ke ECU</h3>
+<p><img src="/assets/images/remap-cbr250rr-sendiri-write-software.png" alt="Remap CBR250RR sendiri write software/flasher software" /></p>
+
+<p>Nah, kalo sampe sini masih nyambung, kita lanjut ke tahap <strong>flashing</strong> dimana kita mengirim file yang sudah kita ubah ke ECU. Flashing ini memerlukan <code class="language-plaintext highlighter-rouge">write software</code> dan <code class="language-plaintext highlighter-rouge">write hardware</code>. Jadi kurang lebih kita menyambungkan <code class="language-plaintext highlighter-rouge">write hardware</code> ke komputer, lalu kita pakai <code class="language-plaintext highlighter-rouge">write software</code> ini untuk “berbicara” dengan ECU lewat <code class="language-plaintext highlighter-rouge">write hardware</code>.</p>
+
+<p>Nah tadi gambaran besarnya supaya punya pegangan dengan konsepnya. Sekarang kita masuk ke eksekusinya (ini yang kalian tunggu-tunggu)</p>
+
+<h2 id="execution"><strong>Execution</strong></h2>
+<h3 id="persiapan">Persiapan</h3>
+<ol>
+  <li>Download virtual driver zadig, cari versi 2.5 yang <a href="https://zadig.akeo.ie/downloads/" target="_blank">di-download disini</a>. Ingat, ini hanya untuk HondaECU 3.02</li>
+  <li>Download <code class="language-plaintext highlighter-rouge">BIN</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/raw/main/CBR250RR-38770-K64-N04_BIN.bin" target="_blank">CBR250RR 38770-K64-N04 disini</a></li>
+  <li>Download <code class="language-plaintext highlighter-rouge">XDF</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">CBR250RR 38770-K64-N04 disini</a>. Pilih versi release terbaru, lalu klik bagian <strong>assets</strong>, lalu klik file <code class="language-plaintext highlighter-rouge">.xdf</code>nya. Di contoh ini kita akan pake versi v0.95 yang bisa langsung <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases/download/38770-K64-N04-v0.95/CBR250RR_38770-K64-N04_PUBLIC_v095.xdf" target="_blank">di-download disini</a></li>
+  <li>Buka <code class="language-plaintext highlighter-rouge">TunerPro</code></li>
+  <li>Pada menu <code class="language-plaintext highlighter-rouge">TunerPro</code>, klik <code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Open Bin</code>, lalu pilih file <code class="language-plaintext highlighter-rouge">.bin</code> yang sudah di-download</li>
+  <li>Pada menu <code class="language-plaintext highlighter-rouge">TunerPro</code>, klik <code class="language-plaintext highlighter-rouge">XDF</code> &gt; <code class="language-plaintext highlighter-rouge">Select XDF</code>, lalu pilih file <code class="language-plaintext highlighter-rouge">.xdf</code> yang sudah di-download</li>
+</ol>
+
+<h3 id="mengubah-binaryrom">Mengubah binary/ROM</h3>
+<p>Jika berhasil maka akan terlihat tampilan seperti dibawah
+<img src="/assets/images/remap-cbr250rr-sendiri-tunerpro.png" alt="Remap CBR250RR sendiri software TunerPro" /><br />
+Di contoh ini, kita akan mencoba menaikkan RPM Limiter CBR250RR kita dari 14000 menjadi <em>14500</em>. Dipersilahkan untuk skip step ubah limiter dan membuat ubahan yang kalian hendaki sendiri</p>
+<ol>
+  <li>Pada Parameter Tree <code class="language-plaintext highlighter-rouge">TunerPro</code> klik <code class="language-plaintext highlighter-rouge">Limiters</code>, maka akan terlihat tabel <code class="language-plaintext highlighter-rouge">RPM Limiter 1</code> hingga <code class="language-plaintext highlighter-rouge">RPM Limiter 5</code></li>
+  <li>Buka tabel-tabel tersebut, dan ubah nilainya menjadi <code class="language-plaintext highlighter-rouge">14500</code> untuk semua kolom.
+<img src="/assets/images/remap-cbr250rr-sendiri-limiter.png" alt="Remap CBR250RR sendiri limiter" /></li>
+  <li>Save tiap ubahan di window tabel</li>
+  <li>Save ubahan ke binary dengan klik <code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Save Bin</code> atau <code class="language-plaintext highlighter-rouge">Save Bin As</code>, terserah kalian, tapi ingat file yang diubah</li>
+</ol>
+
+<h3 id="flashing-ke-ecu-1">Flashing ke ECU</h3>
+<p><img align="center" height="343" width="493" src="/assets/images/remap-cbr250rr-sendiri-physical-setup.jpg" alt="Belajar remap CBR250RR sendiri" /><br />
+Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggunakan HondaECU 3.02 untuk writing ke ECU</p>
+<ol>
+  <li>Sambungkan alat remap ke PC/laptop</li>
+  <li>Buka aplikasi zadig, klik <code class="language-plaintext highlighter-rouge">options</code> &gt; <code class="language-plaintext highlighter-rouge">show all devices</code></li>
+  <li>Pada zadig, pilih device yang sesuai dengan alat remap kalian, umumnya bertuliskan <code class="language-plaintext highlighter-rouge">FT232R USB UART</code>, lalu pada field driver disamping icon <strong>panah/arrow</strong>, pilih libusbK v3.0.7.0, lalu klik replace driver, hingga muncul dialog box bahwa sudah berhasil
+<img src="/assets/images/remap-cbr250rr-sendiri-zadig.png" alt="Remap CBR250RR sendiri zadig" /></li>
+  <li>Buka tempat duduk pengendara, didalamnya ada kabel Data Link Connector (DLC).</li>
+  <li>Sambungkan kabel DLC dengan alat remap</li>
+  <li>Nyalakan kontak motor, <strong>pastikan kill switch di keadaan on</strong> (bukan nyalain motor)</li>
+  <li>Buka software write, di contoh ini kita pake HondaECU v3.02</li>
+  <li>Pilih menu <code class="language-plaintext highlighter-rouge">ECU info</code>, pastikan field <code class="language-plaintext highlighter-rouge">state</code> tertulis <code class="language-plaintext highlighter-rouge">ECUSTATE.OK</code> sebelum melanjutkan, jika belum berarti ECU belum terdeteksi.</li>
+  <li>Pilih menu <code class="language-plaintext highlighter-rouge">Write ECU</code></li>
+  <li>Pilih file .bin yang sudah diubah</li>
+  <li>Pastikan centang <code class="language-plaintext highlighter-rouge">Fix</code> pada <code class="language-plaintext highlighter-rouge">Checksum Location</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Start Offset</code> diisi dengan <code class="language-plaintext highlighter-rouge">0x0</code>. Karena untuk CBR250RR, flashing dimulai dari awal alamat ROM</li>
+  <li><code class="language-plaintext highlighter-rouge">Checksum Location</code> diisi dengan <code class="language-plaintext highlighter-rouge">7FFF8</code> atau <code class="language-plaintext highlighter-rouge">0x7FFF8</code>. Ini sangat penting supaya software write dapat melakukan <strong>checksum correction</strong> secara otomatis.</li>
+  <li>Klik <strong>start</strong></li>
+  <li>Tunggu sekitar 20 menit hingga writing selesai</li>
+</ol>
+
+<h2 id="final-thoughts"><strong>Final Thoughts</strong></h2>
+<p>DIY Reflashing sudah umum di negeri luar, komunitas dan material belajar yang tersedia cukup banyak, sehingga mendukung individu yang penasaran.<br />
+Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.</p>
+
+  </div><script src="https://utteranc.es/client.js"
+        repo="kelvinvalencio/kelvinvalencio.github.io"
+        issue-term="pathname"
+        label="Comments"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+
+  <a class="u-url" href="/id/2021/12/07/remap-cbr250rr-sendiri.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Kelvin Valencio&#39;s Github Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Kelvin Valencio</li><li><a class="u-email" href="mailto:kelvinvalencio@protonmail.com">kelvinvalencio@protonmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://instagram.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#instagram"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://www.linkedin.com/in/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://www.twitter.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">kelvinvalencio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Some blog posts about IT &amp; Other things</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

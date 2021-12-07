@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
-<loc>http://localhost:4000/en/2021/12/05/welcome-to-jekyll.html</loc>
-<lastmod>2021-12-05T17:33:32+07:00</lastmod>
-</url>
-<url>
 <loc>http://localhost:4000/id/2021/12/05/selamat-datang.html</loc>
 <lastmod>2021-12-05T17:33:32+07:00</lastmod>
 </url>
@@ -17,7 +13,14 @@
 <lastmod>2021-12-06T16:13:00+07:00</lastmod>
 </url>
 <url>
+<loc>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html</loc>
+<lastmod>2021-12-07T15:33:32+07:00</lastmod>
+</url>
+<url>
 <loc>http://localhost:4000/about/</loc>
+</url>
+<url>
+<loc>http://localhost:4000/projects/cbr250rr-ecu-binary-definition.html</loc>
 </url>
 <url>
 <loc>http://localhost:4000/id/</loc>
