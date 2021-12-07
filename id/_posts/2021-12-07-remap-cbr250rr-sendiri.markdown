@@ -22,6 +22,7 @@ Karena kepuasan saya melakukan DIY remap, akan saya bahas di postingan ini, gamb
 - Apabila informasi yang saya sediakan kurang/tidak akurat, yang kalian lakukan terhadap informasi ini bukan tanggung jawab saya, tapi saya menerima *feedback* untuk merevisi jika ada kesalahan
 
 ## **Tools**
+<img src="/assets/images/remap-cbr250rr-sendiri-alat-remap.jpg" alt="Remap CBR250RR sendiri: alat remap">
 Berikut hardware dan software yang perlu disiapkan. Saran saya luangin waktu kalian buat cari-cari tool yang dijual dengan teliti supaya mendapatkan harga terbaik dan sesuai. Saya sendiri berhasil mencari kelengkapan alat-alat dengan budget tidak melebihi biaya remap di bengkel-bengkel.
 
 | Nama | Harga | Link
