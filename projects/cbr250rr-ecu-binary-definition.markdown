@@ -1,6 +1,6 @@
 ---
 layout: projects
-permalink: /projects/cbr250rr-ecu-binary-definition/
+permalink: projects/cbr250rr-ecu-binary-definition/
 title: CBR250RR Stock ECU Binary Definition and XDF
 ---
 
