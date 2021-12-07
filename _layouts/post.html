@@ -23,5 +23,14 @@ layout: default
     {%- include disqus_comments.html -%}
   {%- endif -%}
 
+  <script src="https://utteranc.es/client.js"
+        repo="kelvinvalencio/kelvinvalencio.github.io"
+        issue-term="pathname"
+        label="Comments"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+
   <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
 </article>
