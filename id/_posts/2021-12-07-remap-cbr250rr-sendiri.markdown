@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Berbagi Pengalaman Remapping/Reflashing CBR250RR Sendiri Modal Rp 650.000"
+title:  "Berbagi Pengalaman Remap/Reflash CBR250RR Sendiri Modal Rp 650.000"
 date:   2021-12-07 15:33:32 +0700
 category: id
 author: Kelvin Valencio
