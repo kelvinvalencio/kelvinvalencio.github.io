@@ -1,7 +1,7 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-07T22:05:05+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah" /><published>2021-12-07T15:33:32+07:00</published><updated>2021-12-07T15:33:32+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html">&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-winols.jpg&quot; alt=&quot;Remap CBR250RR sendiri modal 650 Ribu&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-07T23:27:06+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah" /><published>2021-12-07T22:00:00+07:00</published><updated>2021-12-07T22:00:00+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html">&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-winols.jpg&quot; alt=&quot;Remap CBR250RR sendiri modal 650 Ribu&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Remapping ECU bawaan motor belakangan ini lagi hot, dan umum banget. Orang-orang memilih remap sebagai cara upgrade performa.&lt;br /&gt;
-Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade performa, tapi harga remap CBR250RR di bengkel-bengkel kisaran &lt;strong&gt;1 jutaan&lt;/strong&gt; untuk 1x remap.&lt;/p&gt;
+&lt;p&gt;Remapping ECU bawaan motor belakangan ini lagi hot, dan mulai mainstream. Banyak orang memilih remap sebagai satu langkah upgrade performa.&lt;br /&gt;
+Saya sendiri sempat tertarik menggunakan jasa remap bengkel untuk upgrade performa, tapi biaya remap motor saya di bengkel-bengkel kisaran &lt;strong&gt;1 jutaan&lt;/strong&gt; untuk 1x remap.&lt;/p&gt;
 
 &lt;p&gt;Jadi saya coba research untuk remap/reflash sendiri selama beberapa minggu. Selain murah, &lt;ins&gt;saya punya kebebasan mau remap berapa kali tanpa bayar lagi&lt;/ins&gt;.&lt;/p&gt;
 
@@ -10,8 +10,8 @@ Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade 
 &lt;h2 id=&quot;resiko-saran-peringatan&quot;&gt;&lt;strong&gt;Resiko, Saran, Peringatan&lt;/strong&gt;&lt;/h2&gt;
 &lt;ul&gt;
   &lt;li&gt;Resiko terburuk bisa merusak ECU dan merusak motor&lt;/li&gt;
-  &lt;li&gt;Saya anjurkan dalam sebelum melaksanakan, pastikan kalian setidaknya kompeten menggunakan komputer&lt;/li&gt;
-  &lt;li&gt;Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin punya langkah yang berbeda&lt;/li&gt;
+  &lt;li&gt;Saya anjurkan sebelum melaksanakan, pastikan kalian setidaknya cukup familiar dengan komputer dan driver komputer&lt;/li&gt;
+  &lt;li&gt;Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin langkahnya berbeda&lt;/li&gt;
   &lt;li&gt;Saya tidak bertanggung jawab atas konsekuensi dari percobaan yang kalian lakukan. Postingan ini ditujukan untuk panduan&lt;/li&gt;
   &lt;li&gt;Apabila informasi yang saya sediakan kurang/tidak akurat, yang kalian lakukan terhadap informasi ini bukan tanggung jawab saya, tapi saya menerima &lt;em&gt;feedback&lt;/em&gt; untuk merevisi jika ada kesalahan&lt;/li&gt;
 &lt;/ul&gt;
@@ -29,7 +29,7 @@ Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade 
   &lt;/thead&gt;
   &lt;tbody&gt;
     &lt;tr&gt;
-      &lt;td&gt;Write Hardware/Alat Remap (K-Line Flash Tool)&lt;/td&gt;
+      &lt;td&gt;write hardware/Alat Remap (K-Line Flash Tool)&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;Rp 450.000&lt;/td&gt;
       &lt;td&gt;&lt;a href=&quot;https://shopee.co.id/product/277642167/5561381862?smtt=0.197913951-1638877447.9&quot; target=&quot;_blank&quot;&gt;Shopee&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
@@ -51,7 +51,7 @@ Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade 
     &lt;tr&gt;
       &lt;td&gt;TunerPro Free&lt;/td&gt;
       &lt;td style=&quot;text-align: right&quot;&gt;&lt;em&gt;Free&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tunerpro.net/downloadApp.htm&quot; target=&quot;_blank&quot;&gt;TunerPro Download Page&lt;/a&gt;&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tunerpro.net/downloadApp.htm&quot; target=&quot;_blank&quot;&gt;Download disini&lt;/a&gt;&lt;/td&gt;
     &lt;/tr&gt;
     &lt;tr&gt;
       &lt;td&gt;&lt;strong&gt;Total Termurah&lt;/strong&gt;&lt;/td&gt;
@@ -64,8 +64,8 @@ Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade 
 &lt;h2 id=&quot;overview&quot;&gt;&lt;strong&gt;Overview&lt;/strong&gt;&lt;/h2&gt;
 &lt;h3 id=&quot;tunerpro-file-bin-dan-file-xdf&quot;&gt;TunerPro, File .bin, dan File .xdf&lt;/h3&gt;
 &lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; adalah software untuk mengubah mapping sesuka kalian. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; yang akan di edit, dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; yang mendefinisikan parameter yang ada di ECU.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Didalamnya ada pengaturan seperti:
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; adalah software untuk mengubah pengaturan ECU. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; yang akan di edit, dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; yang mendefinisikan parameter yang ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Beda motor tentu beda binary. Didalamnya ada pengaturan seperti:
     &lt;ul&gt;
       &lt;li&gt;Mapping bensin&lt;/li&gt;
       &lt;li&gt;Mapping pengapian&lt;/li&gt;
@@ -73,32 +73,34 @@ Saya sendiri sempat tertarik untuk menggunakan jasa remap bengkel untuk upgrade 
       &lt;li&gt;Dan masih banyak lagi&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; adalah file Definition yang menjelaskan letak alamat mapping yang ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;. &lt;strong&gt;File XDF beda-beda tiap motor&lt;/strong&gt;, karena beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; tentunya beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; adalah file Definition yang menjelaskan letak alamat pengaturan yang ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;. &lt;strong&gt;File XDF beda-beda tiap motor&lt;/strong&gt;, karena beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; tentunya beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&quot;sebenernya-binary-patching&quot;&gt;Sebenernya Binary Patching&lt;/h3&gt;
-&lt;p&gt;Jadi ketika kita melakukan remap/reflash, kurang lebih kita melakukan yang disebut &lt;a href=&quot;https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/&quot; target=&quot;_blank&quot;&gt;binary patching atau patching&lt;/a&gt;.&lt;br /&gt;
+&lt;p&gt;Jadi ketika kita melakukan remap/reflash, kurang lebih yang kita lakukan adalah &lt;a href=&quot;https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/&quot; target=&quot;_blank&quot;&gt;binary patching atau patching&lt;/a&gt;.&lt;br /&gt;
 Simpelnya, kita membaca nilai-nilai yang ada di file mentah &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; tersebut, lalu kita ubah nilainya, lalu kita kirim kembali ke ECU!&lt;/p&gt;
 
 &lt;h3 id=&quot;tentang-checksum&quot;&gt;Tentang Checksum&lt;/h3&gt;
 &lt;p&gt;Checksum pada ECU umumnya adalah rentang alamat khusus yang berisi nilai checksum, untuk menentukan integritas dari binary.&lt;br /&gt;
-Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan value yang ada di mapping, dll. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya &lt;em&gt;harus dihitung ulang&lt;/em&gt;.&lt;/p&gt;
+Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan nilai-nilai yang ada di binary. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya &lt;strong&gt;harus dihitung ulang&lt;/strong&gt;. Jika tidak, saat ECU melakukan proses &lt;strong&gt;booting&lt;/strong&gt; dan menemukan bahwa checksum tidak sesuai dengan angka yang ada di ECU, motor mungkin tidak mau nyala karena dianggap ada perubahan pada memori yang tidak disengaja.&lt;/p&gt;
 
-&lt;p&gt;Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun software write seperti &lt;a href=&quot;https://mcuinnovations.com/software/hondaecu/&quot; target=&quot;_blank&quot;&gt;HondaECU&lt;/a&gt; sudah dapat melakukan &lt;strong&gt;checksum correction&lt;/strong&gt; secara sendirinya. Jadi saat binary yang sudah diubah hendak dikirim ke ECU, software write tertentu secara diam-diam mengubah lagi nilai checksum sesuai dengan kalkulasi yang sebetulnya.&lt;/p&gt;
+&lt;p&gt;Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun write software seperti &lt;a href=&quot;https://mcuinnovations.com/software/hondaecu/&quot; target=&quot;_blank&quot;&gt;HondaECU&lt;/a&gt; sudah dapat melakukan &lt;strong&gt;checksum correction&lt;/strong&gt; secara sendirinya. Jadi saat binary yang berubah hendak dikirim ke ECU, write software tertentu akan mengubah lagi nilai checksum sesuai dengan kalkulasi yang seharusnya.&lt;/p&gt;
 
 &lt;h3 id=&quot;siapa-yang-bikin-xdf-gimana-bikin-xdf&quot;&gt;Siapa Yang Bikin XDF? Gimana Bikin XDF?&lt;/h3&gt;
-&lt;p&gt;XDF itu dibuat oleh orang biasa, kalian juga bisa bikin XDF sendiri. Untuk kendaraan tertentu, ada XDF yang lengkap, ada XDF yang kurang lengkap.&lt;br /&gt;
-Biasanya XDF itu diperjualbelikan oleh orang yang meluangkan waktunya untuk menganalisa file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; kendaraan tertentu.&lt;br /&gt;
-Umumnya pembuatan XDF dilakukan dengan menganalisa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; mentah, biasanya menggunakan software seperti &lt;a href=&quot;https://www.evc.de/en/product/ols/software/&quot; target=&quot;_blank&quot;&gt;WinOLS&lt;/a&gt;, yang bisa membantu mengelompokkan mapping berdasarkan pola yang ada di file tersebut.&lt;/p&gt;
+&lt;p&gt;XDF dibuat oleh orang biasa, kalian juga bisa bikin XDF sendiri. XDF suatu ECU ada yang lengkap, ada XDF yang kurang lengkap.&lt;br /&gt;
+Biasanya XDF diperjualbelikan oleh orang yang meluangkan waktunya untuk menganalisa file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; suatu ECU.&lt;br /&gt;
+Umumnya pembuatan XDF dilakukan dengan menganalisa &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.bin&lt;/code&gt; mentah, umumnya menggunakan software &lt;a href=&quot;https://www.evc.de/en/product/ols/software/&quot; target=&quot;_blank&quot;&gt;WinOLS&lt;/a&gt;, karena bisa membantu memprediksi mapping berdasarkan pola pada file bin.&lt;/p&gt;
 
-&lt;p&gt;Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa &lt;a href=&quot;projects/cbr250rr-ecu-binary-definition/&quot; target=&quot;_blank&quot;&gt;di-download gratis disini.&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;file-xdf-untuk-cbr250rr&quot;&gt;File XDF untuk CBR250RR&lt;/h3&gt;
+&lt;p&gt;Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
+Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa &lt;a href=&quot;projects/cbr250rr-ecu-binary-definition/&quot; target=&quot;_blank&quot;&gt;di-download gratis disini.&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;Untuk cara menganalisa dan membuat XDF sendiri mungkin bakal saya bahas di postingan mendatang.&lt;/p&gt;
 
 &lt;h3 id=&quot;flashing-ke-ecu&quot;&gt;Flashing ke ECU&lt;/h3&gt;
 &lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-write-software.png&quot; alt=&quot;Remap CBR250RR sendiri write software/flasher software&quot; /&gt;&lt;/p&gt;
 
-&lt;p&gt;Nah, kalo sampe sini masih nyambung, kita lanjut ke tahap &lt;strong&gt;flashing&lt;/strong&gt; dimana kita mengirim file yang sudah kita ubah ke ECU. Flashing ini memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;. Jadi kurang lebih kita menyambungkan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt; ke komputer, lalu kita pakai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; ini untuk “berbicara” dengan ECU lewat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Nah, kalo sampe sini masih nyambung, kita lanjut ke tahap &lt;strong&gt;flashing&lt;/strong&gt; dimana file .bin baru kita kirim ke ECU. Flashing ini memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;. Jadi kurang lebih kita menyambungkan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt; ke komputer, lalu kita pakai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; untuk “berbicara” dengan ECU lewat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;.&lt;/p&gt;
 
 &lt;p&gt;Nah tadi gambaran besarnya supaya punya pegangan dengan konsepnya. Sekarang kita masuk ke eksekusinya (ini yang kalian tunggu-tunggu)&lt;/p&gt;
 
@@ -136,20 +138,23 @@ Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggun
   &lt;li&gt;Buka tempat duduk pengendara, didalamnya ada kabel Data Link Connector (DLC).&lt;/li&gt;
   &lt;li&gt;Sambungkan kabel DLC dengan alat remap&lt;/li&gt;
   &lt;li&gt;Nyalakan kontak motor, &lt;strong&gt;pastikan kill switch di keadaan on&lt;/strong&gt; (bukan nyalain motor)&lt;/li&gt;
-  &lt;li&gt;Buka software write, di contoh ini kita pake HondaECU v3.02&lt;/li&gt;
+  &lt;li&gt;Buka write software, di contoh ini kita pake HondaECU v3.02&lt;/li&gt;
   &lt;li&gt;Pilih menu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ECU info&lt;/code&gt;, pastikan field &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;state&lt;/code&gt; tertulis &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;ECUSTATE.OK&lt;/code&gt; sebelum melanjutkan, jika belum berarti ECU belum terdeteksi.&lt;/li&gt;
   &lt;li&gt;Pilih menu &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Write ECU&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;Pilih file .bin yang sudah diubah&lt;/li&gt;
   &lt;li&gt;Pastikan centang &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Fix&lt;/code&gt; pada &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Checksum Location&lt;/code&gt;&lt;/li&gt;
   &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Start Offset&lt;/code&gt; diisi dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x0&lt;/code&gt;. Karena untuk CBR250RR, flashing dimulai dari awal alamat ROM&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Checksum Location&lt;/code&gt; diisi dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7FFF8&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x7FFF8&lt;/code&gt;. Ini sangat penting supaya software write dapat melakukan &lt;strong&gt;checksum correction&lt;/strong&gt; secara otomatis.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Checksum Location&lt;/code&gt; diisi dengan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;7FFF8&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x7FFF8&lt;/code&gt;. Ini sangat penting supaya write software dapat melakukan &lt;strong&gt;checksum correction&lt;/strong&gt; secara otomatis.&lt;/li&gt;
   &lt;li&gt;Klik &lt;strong&gt;start&lt;/strong&gt;&lt;/li&gt;
   &lt;li&gt;Tunggu sekitar 20 menit hingga writing selesai&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h2 id=&quot;final-thoughts&quot;&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h2&gt;
 &lt;p&gt;DIY Reflashing sudah umum di negeri luar, komunitas dan material belajar yang tersedia cukup banyak, sehingga mendukung individu yang penasaran.&lt;br /&gt;
-Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"></summary></entry><entry><title type="html">HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know</title><link href="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html" rel="alternate" type="text/html" title="HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know" /><published>2021-12-06T16:13:00+07:00</published><updated>2021-12-06T16:13:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html">&lt;center&gt;&lt;img src=&quot;https://i.imgur.com/vhpyGlz.png&quot; alt=&quot;CS50 photo&quot; /&gt;&lt;/center&gt;
+Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.&lt;/p&gt;
+
+&lt;p&gt;Udah bisa remap, sekarang apa? Tahap selanjutnya saya saranin pelajari konsep seperti ignition tuning, fuel tuning. Saya rekomen video-video dari channel Youtube &lt;a href=&quot;https://www.youtube.com/watch?v=5KdbEXYD224&quot; target=&quot;_blank&quot;&gt;HP Academy&lt;/a&gt;, yang memberikan pegangan konsep yang baik tentang tuning mesin injeksi.&lt;br /&gt;
+Dari situ kalo kalian udah nyaman dengan teorinya, baru coba mengubah Fuel dan Ignition Map.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"></summary></entry><entry><title type="html">HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know</title><link href="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html" rel="alternate" type="text/html" title="HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know" /><published>2021-12-06T16:13:00+07:00</published><updated>2021-12-06T16:13:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html">&lt;center&gt;&lt;img src=&quot;https://i.imgur.com/vhpyGlz.png&quot; alt=&quot;CS50 photo&quot; /&gt;&lt;/center&gt;
 &lt;p&gt;If you’re interested in taking the course, &lt;a href=&quot;https://www.edx.org/course/introduction-computer-science-harvardx-cs50x&quot;&gt;go to this EDx page&lt;/a&gt; or &lt;a href=&quot;https://cs50.harvard.edu/x/&quot;&gt;go to this official page for CS50x&lt;/a&gt;&lt;/p&gt;
 
 &lt;p&gt;CS50x is one of the largest Computer Science course provided by HarvardX, it’s available online and is free.&lt;/p&gt;

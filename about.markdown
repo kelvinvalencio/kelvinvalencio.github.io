@@ -1,6 +1,6 @@
 ---
 layout: page
-title: About
+title: About Me
 permalink: /about/
 menu: main
 ---
@@ -13,35 +13,35 @@ menu: main
     "education":
     [
         {
-            "name": "Universitas Bunda Mulia",
-            "major": "Information Systems",
+        "name": "Universitas Bunda Mulia",
+        "major": "Information Systems",
         },
 
         {
-            "name": "Yayasan Musik Jakarta",
-            "major": "Classical Music",
+        "name": "Yayasan Musik Jakarta",
+        "major": "Classical Music",
         }
     ],
 
     "experience": 
     [
         {
-            "company": "Larona Prima Solusi",
-            "position": "ERP Development & Support Team",
-            "role": [
-                "Developed UI/UX using HTML, JavaScript, jQuery, proprietary template",
-                "Maintained Cloud Infrastructure using AWS and GCP",
-                "Maintained clients database using MySQL"
-            ]
+        "company": "Larona Prima Solusi",
+        "position": "ERP Development & Support Team",
+        "role": [
+            "Developed UI/UX using HTML, JavaScript, jQuery, proprietary template",
+            "Maintained Cloud Infrastructure using AWS and GCP",
+            "Maintained clients database using MySQL"
+        ]
         }
     ],
 
     "skills":
     [
-        "Front-End Web Development",
-        "Linux Administration",
-        "Object-Oriented Paradigm",
-        "Computer Security"
+    "Front-End Web Development",
+    "Linux Administration",
+    "Object-Oriented Paradigm",
+    "Computer Security"
     ]
 }
 ```
