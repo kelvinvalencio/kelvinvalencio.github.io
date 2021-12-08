@@ -4,6 +4,7 @@ title:  "HarvardX CS50/CS50x Introduction to Computer Science course - What You 
 date:   2021-12-06 16:13:00 +0700
 category: en
 author: Kelvin Valencio
+description: I just completed CS50x, and I will share to you what you need to know about the course.
 ---
 <center><img src="https://i.imgur.com/vhpyGlz.png" alt="CS50 photo"></center>
 If you're interested in taking the course, [go to this EDx page](https://www.edx.org/course/introduction-computer-science-harvardx-cs50x) or [go to this official page for CS50x](https://cs50.harvard.edu/x/)

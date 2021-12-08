@@ -1,9 +1,10 @@
 ---
 layout: post
-title:  "Berbagi Pengalaman Reflash/Remap CBR250RR Sendiri Modal 650 Ribu Rupiah"
+title:  "Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah"
 date:   2021-12-07 22:00:00 +0700
 category: id
 author: Kelvin Valencio
+description: Tutorial belajar remap sendiri CBR250RR cukup dengan budget 650 Ribu, serta penjelasan konsep remapping/reflashing secara umum!
 ---
 ![Remap CBR250RR sendiri modal 650 Ribu](/assets/images/remap-cbr250rr-sendiri-winols.jpg)  
 
