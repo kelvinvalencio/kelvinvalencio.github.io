@@ -22,7 +22,7 @@ title: Kelvin Valencio's Github Blog
 email: kelvinvalencio@protonmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   Some blog posts about IT & Other things
-baseurl: "/" # the subpath of your site, e.g. /blog
+baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://kelvinvalencio.github.io/" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: kelvinvalencio
 github_username:  kelvinvalencio
