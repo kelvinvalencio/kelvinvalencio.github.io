@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="google-site-verification" content="p1E5Y7Ps3AeCKLcOE1gWXtRCXl8gkaZZSVr57DNwWoQ" />
+  <link rel="icon" type="image/png" href="/assets/logo.png" /><!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>Duplikat Kartu RFID Sendiri Menggunakan Arduino | Kelvin Valencio’s Github Blog</title>
+<meta name="generator" content="Jekyll v3.9.0" />
+<meta property="og:title" content="Duplikat Kartu RFID Sendiri Menggunakan Arduino" />
+<meta name="author" content="Kelvin Valencio" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Cara duplikat kartu RFID kartu absen/member menggunakan Arduino Uno R3" />
+<meta property="og:description" content="Cara duplikat kartu RFID kartu absen/member menggunakan Arduino Uno R3" />
+<link rel="canonical" href="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" />
+<meta property="og:url" content="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" />
+<meta property="og:site_name" content="Kelvin Valencio’s Github Blog" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-01-27T22:00:00+07:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="Duplikat Kartu RFID Sendiri Menggunakan Arduino" />
+<script type="application/ld+json">
+{"url":"http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html","headline":"Duplikat Kartu RFID Sendiri Menggunakan Arduino","dateModified":"2022-01-27T22:00:00+07:00","datePublished":"2022-01-27T22:00:00+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html"},"author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"BlogPosting","description":"Cara duplikat kartu RFID kartu absen/member menggunakan Arduino Uno R3","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kelvin Valencio&apos;s Github Blog" /></head>
+<body><header class="site-header" role="banner">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/"><img src="/assets/logo.png">Kelvin Valencio&#39;s Github Blog</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/projects/">Projects</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Duplikat Kartu RFID Sendiri Menggunakan Arduino</h1>
+    <p class="post-meta">
+      <time class="dt-published" datetime="2022-01-27T22:00:00+07:00" itemprop="datePublished">Jan 27, 2022
+      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Kelvin Valencio</span></span></p>
+      
+  </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino.jpg" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<p>Penerapan RFID udah luas banget. Contohnya member parkir, absen di kampus, absen di kantor, kunci pintu rumah, dan masih banyak lagi.<br />
+Setelah belajar lebih lanjut soal RFID, ternyata kartu RFID bisa diclone jika menggunakan kartu yang <a href="https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia" target="_blank">UID-rewritable</a>.</p>
+
+<p>Tinggal di salah satu lingkungan yang sudah menerapkan sistem keluar masuk menggunakan kartu seperti ini, membuat saya termotivasi untuk belajar duplikat kartu RFID. Pasalnya, saya sering menghilangkan kartu seperti ini, dan jika kehilangan kartu member ini umumnya <strong>dikenakan denda</strong> oleh pihak layanan sistem ini.</p>
+
+<p>Denda ini umumnya mulai dari Rp 50.000. Padahal jelas harga kartu RFID yang <a href="https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia" target="_blank">UID-rewritable</a> tidak mencapai 8 ribu. Faktanya, saya membeli kartu duplikat ini dengan harga 7 ribu rupiah.</p>
+
+<p>Keputusan saya untuk menggunakan Arduino berdasarkan pertimbangan bahwa:</p>
+<ul>
+  <li>Untuk memiliki hands-on experience terhadap Arduino</li>
+  <li>Budget saya tidak mencapai/melebihi alat clone yang berkisar 120 ribu rupiah atau lebih</li>
+</ul>
+
+<p>Kebanyakan HP yang mendukung NFC bisa digunakan untuk duplikat, tapi perlu kartu khusus yang mendukung aplikasi seperti <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool" target="_blank">Mifare Classic Tool di Android</a>. Jadi kartu yang bisa ditulis dengan modul Arduino ini belum tentu bisa ditulis ulang menggunakan aplikasi tersebut.</p>
+
+<p>Pada post ini saya hanya membahas duplikat menggunakan Arduino. Untuk duplikat menggunakan HP NFC mungkin akan saya bahas di lain post.</p>
+
+<h2 id="tools"><strong>Tools</strong></h2>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-2.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Berikut peralatan yang saya gunakan beserta harganya. Tentunya harga beda-beda tiap lapak, namun saya cukup puas dengan belanjaan dibawah:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th style="text-align: right">Harga</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Uno R3 Clone</td>
+      <td style="text-align: right">Rp 65.000</td>
+      <td><a href="https://www.tokopedia.com/toko-tekno/arduino-uno-r3-clone" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Modul Arduino: RFID RC522</td>
+      <td style="text-align: right">Rp 3.250</td>
+      <td><a href="https://www.tokopedia.com/tekno-kreasi-elektronik/sensor-rfid-rc522-module-rfid-module-rfid-card" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Solder 40w</td>
+      <td style="text-align: right">8.800</td>
+      <td><a href="https://www.tokopedia.com/zencarparts/alat-solder-listrik-patri-listrik-timah-soldering-iron-40w-40watt-220v" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Timah untuk solder</td>
+      <td style="text-align: right">11.900</td>
+      <td><a href="https://www.tokopedia.com/meinaelektrik/welsolo-vvs-633a-timah-gulung-solder-timah-soldering-original-0-3mm" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard 830</td>
+      <td style="text-align: right">Rp 11.600</td>
+      <td><a href="https://www.tokopedia.com/mirorim/mb-102-breadboard-830-holes-lubang-solderless-for-prototyping-arduino" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Kabel Jumper Arduino Male to Male minimal 7 pcs</td>
+      <td style="text-align: right">Rp 5.800</td>
+      <td><a href="https://www.tokopedia.com/roboware/kabel-jumper-pelangi-arduino-20cm-male-to-male-20-pcs-breadboard" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Kartu Mifare Classic 1K 13.57MHz Rewritable UID</td>
+      <td style="text-align: right">Rp 7.000</td>
+      <td><a href="https://www.tokopedia.com/electron/13-56-mhz-rewritable-uid-card-writable-rewritable-clone-duplicate" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td style="text-align: right"><strong>Rp 113.350</strong></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Solder dan timah digunakan untuk melakukan solder pin header modul RFID dengan board RFIDnya. Sebaiknya punya solder, tapi saya sendiri pertama kali mengoperasikan solder saat membuat project ini.<br />
+Breadboard dan kabel jumper digunakan untuk menghubungkan modul RFID dengan Arduino.<br />
+Kartu RFID harus tipe Mifare Classic 1K UID Rewritable, karena merupakan kartu yang paling umum digunakan. Ingat untuk tidak menggunakan kartu yang didapatkan dari paket modul RC522, karena kartu-kartu tersebut hanya UID read-only.</p>
+
+<h2 id="overview">Overview</h2>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-3.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Kartu RFID itu ada banyak model dan kadang tidak kompatibel antara satu sama lain. Kebanyakan kartu yang digunakan untuk kartu absen, kartu parkir, kartu member, dll. adalah <strong>NXP Mifare Classic 1K</strong> dengan standar ISO 14443 Type A, yang bekerja di frekuensi tinggi (13.57 MHz).<br />
+Kartu ini menampung data 1024 byte, terdiri dari 16 sektor memiliki UID atau Unique Identifier pada <strong>4 byte</strong> pertama di sektor 0 dari block memori kartu ini. Kartu Mifare 1K yang mendukung UID-rewritable umumnya hanya bisa tulis ulang pada sektor 0.</p>
+
+<p>Ketika melakukan duplikat kartu, yang biasanya perlu dicapai adalah menduplikat 4 byte pertama dari sektor 0 pada kartu RFID. Jadi yang akan saya bahas di post ini adalah memasang Arduino dengan modulnya, lalu menggunakan example library dari Arduino IDE untuk membaca UID kartu yang mau diduplikat, lalu menulis UID pada kartu duplikat.</p>
+
+<h2 id="execution"><strong>Execution</strong></h2>
+<h3 id="persiapan">Persiapan</h3>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-6.png" alt="Duplikat kartu RFID menggunakan Arduino" />
+Pada tahap persiapan, saya mendownload Arduino IDE yang bisa <a href="https://www.arduino.cc/en/software" target="_blank">didownload disini</a>, kemudian mendownload library MFRC522 oleh GithubCommunity yang bisa diinstall melalui menu <strong>Manage Libraries</strong> pada menu <strong>Sketch</strong>.</p>
+
+<p>Setelah itu saya solder pin header dengan modul RFID 522. Pin header include dengan modulnya. Caranya bisa lihat <a href="https://youtu.be/wv5Mp1mn_8M" target="_blank">video ini</a></p>
+
+<h3 id="pemasangan-arduino-dengan-modul-rc522">Pemasangan Arduino dengan Modul RC522</h3>
+<p>Pada tahap pemasangan, Arduino Uno dipasangkan dengan modul RC522 sesuai dengan tabel wiring dibawah:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pin</th>
+      <th>Wiring ke Arduino Uno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SDA</td>
+      <td>Digital 10</td>
+    </tr>
+    <tr>
+      <td>SCK</td>
+      <td>Digital 13</td>
+    </tr>
+    <tr>
+      <td>MOSI</td>
+      <td>Digital 11</td>
+    </tr>
+    <tr>
+      <td>MISO</td>
+      <td>Digital 12</td>
+    </tr>
+    <tr>
+      <td>IRQ</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>GND</td>
+      <td>GND</td>
+    </tr>
+    <tr>
+      <td>RST</td>
+      <td>Digital 9</td>
+    </tr>
+    <tr>
+      <td>3.3V</td>
+      <td>3.3V</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Berikut skematik dari <a href="https://randomnerdtutorials.com/security-access-using-mfrc522-rfid-reader-with-arduino/" target="_blank">RandomNerdTutorials</a>:
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-5.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<p>Karena menggunakan breadboard, maka tidak persis skematik, karena breadboard akan menjadi perantara hubungan antara Wiring ke Arduino dengan Pin pada modul RC522, jadi akhirnya terlihat seperti ini
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-4.jpg" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<h3 id="cek-dumpinfo-kartu-aslilama">Cek DumpInfo Kartu Asli/Lama</h3>
+<p>Setelah koneksi siap, maka saya memastikan bahwa kartu asli yang mau diduplikat adalah model kartu yang cocok dengan kartu duplikat. Caranya adalah dengan mengakses submenu <strong>Examples</strong> pada menu <strong>File</strong> pada Arudino IDE, program yang perlu digunakan adalah <strong>DumpInfo</strong> lalu upload sketch ke Arduino dengan tombol <strong>Upload</strong> hingga muncul pesan<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-7.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<p>Menu <strong>Serial Monitor</strong> akan menampilkan data kartu ketika kartu didekatkan dengan modul RC522, tapi yang perlu dicatat hanyalah <strong>UID</strong>.<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-8.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<h3 id="proses-duplikat-ke-kartu-baru">Proses Duplikat ke Kartu Baru</h3>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-12.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Setelah mencatat UID yang perlu dicopy, dalam kasus ini adalah <strong>EC F6 33 49</strong>, maka tinggal mengakses example bernama <strong>ChangeUID</strong>, lalu buat perubahan pada line yang mendefinisikan UID baru, diubah sesuai dengan UID yang diinginkan.<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-9.png" alt="Duplikat kartu RFID menggunakan Arduino" /><br />
+Menjadi<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-10.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
+
+<p>Setelah upload dan melihat output Serial Monitor, maka ketika mendekatkan <strong>kartu baru</strong> ke modul RC522, maka Arduino akan langsung menulis ulang UID kartu sesuai yang didefinisikan. Hal tersebut bisa dipastikan dengan output seperti dibawah:<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-11.png" alt="Duplikat kartu RFID menggunakan Arduino" /><br />
+Dari output tersebut, UID kartu yang sebelumnya <strong>7D 53 63 32</strong> menjadi <strong>EC F6 33 49</strong>. Sesuai dengan kartu lama!!</p>
+
+<p>Maka dapat disimpulkan bahwa proses duplikat telah berhasil, kartu baru sudah dapat digunakan sebagai cadangan.</p>
+
+<h2 id="final-thoughts"><strong>Final Thoughts</strong></h2>
+<p>Melakukan duplikat kartu RFID menggunakan Arduino memberikan pengalaman hands-on terhadap Arduino dan modul RFID nya, memperluas pengetahuan saya tentang teknologi RFID, jenis-jenis yang tersedia, serta membantu saya mengenali berbagai macam tipe RFID dari frekuensi, struktur memori, serta model yang berbeda.</p>
+
+<p>Selain itu saya jadi bisa menghemat uang dengan menyiapkan kartu duplikat, yang bisa mencegah saya harus membayar denda kehilangan kartu seperti ini yang nilai dendanya tidak fair.</p>
+
+  </div><script src="https://utteranc.es/client.js"
+        repo="kelvinvalencio/kelvinvalencio.github.io"
+        issue-term="pathname"
+        label="Comments"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+  </script>
+
+  <a class="u-url" href="/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <h2 class="footer-heading">Kelvin Valencio&#39;s Github Blog</h2>
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col footer-col-1">
+        <ul class="contact-list">
+          <li class="p-name">Kelvin Valencio</li><li><a class="u-email" href="mailto:kelvinvalencio@protonmail.com">kelvinvalencio@protonmail.com</a></li></ul>
+      </div>
+
+      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://github.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://instagram.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#instagram"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://www.linkedin.com/in/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">kelvinvalencio</span></a></li><li><a href="https://www.twitter.com/kelvinvalencio"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg> <span class="username">kelvinvalencio</span></a></li></ul>
+</div>
+
+      <div class="footer-col footer-col-3">
+        <p>Some blog posts about IT &amp; Other things</p>
+      </div>
+    </div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>

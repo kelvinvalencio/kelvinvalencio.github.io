@@ -1,4 +1,172 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-12-11T19:31:38+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah" /><published>2021-12-07T22:00:00+07:00</published><updated>2021-12-07T22:00:00+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html">&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-winols.jpg&quot; alt=&quot;Remap CBR250RR sendiri modal 650 Ribu&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2022-01-27T22:45:21+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Duplikat Kartu RFID Sendiri Menggunakan Arduino</title><link href="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" rel="alternate" type="text/html" title="Duplikat Kartu RFID Sendiri Menggunakan Arduino" /><published>2022-01-27T22:00:00+07:00</published><updated>2022-01-27T22:00:00+07:00</updated><id>http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino</id><content type="html" xml:base="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html">&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Penerapan RFID udah luas banget. Contohnya member parkir, absen di kampus, absen di kantor, kunci pintu rumah, dan masih banyak lagi.&lt;br /&gt;
+Setelah belajar lebih lanjut soal RFID, ternyata kartu RFID bisa diclone jika menggunakan kartu yang &lt;a href=&quot;https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia&quot; target=&quot;_blank&quot;&gt;UID-rewritable&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tinggal di salah satu lingkungan yang sudah menerapkan sistem keluar masuk menggunakan kartu seperti ini, membuat saya termotivasi untuk belajar duplikat kartu RFID. Pasalnya, saya sering menghilangkan kartu seperti ini, dan jika kehilangan kartu member ini umumnya &lt;strong&gt;dikenakan denda&lt;/strong&gt; oleh pihak layanan sistem ini.&lt;/p&gt;
+
+&lt;p&gt;Denda ini umumnya mulai dari Rp 50.000. Padahal jelas harga kartu RFID yang &lt;a href=&quot;https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia&quot; target=&quot;_blank&quot;&gt;UID-rewritable&lt;/a&gt; tidak mencapai 8 ribu. Faktanya, saya membeli kartu duplikat ini dengan harga 7 ribu rupiah.&lt;/p&gt;
+
+&lt;p&gt;Keputusan saya untuk menggunakan Arduino berdasarkan pertimbangan bahwa:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Untuk memiliki hands-on experience terhadap Arduino&lt;/li&gt;
+  &lt;li&gt;Budget saya tidak mencapai/melebihi alat clone yang berkisar 120 ribu rupiah atau lebih&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Kebanyakan HP yang mendukung NFC bisa digunakan untuk duplikat, tapi perlu kartu khusus yang mendukung aplikasi seperti &lt;a href=&quot;https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool&quot; target=&quot;_blank&quot;&gt;Mifare Classic Tool di Android&lt;/a&gt;. Jadi kartu yang bisa ditulis dengan modul Arduino ini belum tentu bisa ditulis ulang menggunakan aplikasi tersebut.&lt;/p&gt;
+
+&lt;p&gt;Pada post ini saya hanya membahas duplikat menggunakan Arduino. Untuk duplikat menggunakan HP NFC mungkin akan saya bahas di lain post.&lt;/p&gt;
+
+&lt;h2 id=&quot;tools&quot;&gt;&lt;strong&gt;Tools&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-2.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
+Berikut peralatan yang saya gunakan beserta harganya. Tentunya harga beda-beda tiap lapak, namun saya cukup puas dengan belanjaan dibawah:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Nama&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Harga&lt;/th&gt;
+      &lt;th&gt;Link&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Arduino Uno R3 Clone&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rp 65.000&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/toko-tekno/arduino-uno-r3-clone&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Modul Arduino: RFID RC522&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rp 3.250&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/tekno-kreasi-elektronik/sensor-rfid-rc522-module-rfid-module-rfid-card&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Solder 40w&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;8.800&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/zencarparts/alat-solder-listrik-patri-listrik-timah-soldering-iron-40w-40watt-220v&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Timah untuk solder&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;11.900&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/meinaelektrik/welsolo-vvs-633a-timah-gulung-solder-timah-soldering-original-0-3mm&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Breadboard 830&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rp 11.600&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/mirorim/mb-102-breadboard-830-holes-lubang-solderless-for-prototyping-arduino&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Kabel Jumper Arduino Male to Male minimal 7 pcs&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rp 5.800&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/roboware/kabel-jumper-pelangi-arduino-20cm-male-to-male-20-pcs-breadboard&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Kartu Mifare Classic 1K 13.57MHz Rewritable UID&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rp 7.000&lt;/td&gt;
+      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/electron/13-56-mhz-rewritable-uid-card-writable-rewritable-clone-duplicate&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;Rp 113.350&lt;/strong&gt;&lt;/td&gt;
+      &lt;td&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Solder dan timah digunakan untuk melakukan solder pin header modul RFID dengan board RFIDnya. Sebaiknya punya solder, tapi saya sendiri pertama kali mengoperasikan solder saat membuat project ini.&lt;br /&gt;
+Breadboard dan kabel jumper digunakan untuk menghubungkan modul RFID dengan Arduino.&lt;br /&gt;
+Kartu RFID harus tipe Mifare Classic 1K UID Rewritable, karena merupakan kartu yang paling umum digunakan. Ingat untuk tidak menggunakan kartu yang didapatkan dari paket modul RC522, karena kartu-kartu tersebut hanya UID read-only.&lt;/p&gt;
+
+&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-3.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
+Kartu RFID itu ada banyak model dan kadang tidak kompatibel antara satu sama lain. Kebanyakan kartu yang digunakan untuk kartu absen, kartu parkir, kartu member, dll. adalah &lt;strong&gt;NXP Mifare Classic 1K&lt;/strong&gt; dengan standar ISO 14443 Type A, yang bekerja di frekuensi tinggi (13.57 MHz).&lt;br /&gt;
+Kartu ini menampung data 1024 byte, terdiri dari 16 sektor memiliki UID atau Unique Identifier pada &lt;strong&gt;4 byte&lt;/strong&gt; pertama di sektor 0 dari block memori kartu ini. Kartu Mifare 1K yang mendukung UID-rewritable umumnya hanya bisa tulis ulang pada sektor 0.&lt;/p&gt;
+
+&lt;p&gt;Ketika melakukan duplikat kartu, yang biasanya perlu dicapai adalah menduplikat 4 byte pertama dari sektor 0 pada kartu RFID. Jadi yang akan saya bahas di post ini adalah memasang Arduino dengan modulnya, lalu menggunakan example library dari Arduino IDE untuk membaca UID kartu yang mau diduplikat, lalu menulis UID pada kartu duplikat.&lt;/p&gt;
+
+&lt;h2 id=&quot;execution&quot;&gt;&lt;strong&gt;Execution&lt;/strong&gt;&lt;/h2&gt;
+&lt;h3 id=&quot;persiapan&quot;&gt;Persiapan&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-6.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
+Pada tahap persiapan, saya mendownload Arduino IDE yang bisa &lt;a href=&quot;https://www.arduino.cc/en/software&quot; target=&quot;_blank&quot;&gt;didownload disini&lt;/a&gt;, kemudian mendownload library MFRC522 oleh GithubCommunity yang bisa diinstall melalui menu &lt;strong&gt;Manage Libraries&lt;/strong&gt; pada menu &lt;strong&gt;Sketch&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Setelah itu saya solder pin header dengan modul RFID 522. Pin header include dengan modulnya. Caranya bisa lihat &lt;a href=&quot;https://youtu.be/wv5Mp1mn_8M&quot; target=&quot;_blank&quot;&gt;video ini&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;pemasangan-arduino-dengan-modul-rc522&quot;&gt;Pemasangan Arduino dengan Modul RC522&lt;/h3&gt;
+&lt;p&gt;Pada tahap pemasangan, Arduino Uno dipasangkan dengan modul RC522 sesuai dengan tabel wiring dibawah:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Pin&lt;/th&gt;
+      &lt;th&gt;Wiring ke Arduino Uno&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SDA&lt;/td&gt;
+      &lt;td&gt;Digital 10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;SCK&lt;/td&gt;
+      &lt;td&gt;Digital 13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MOSI&lt;/td&gt;
+      &lt;td&gt;Digital 11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;MISO&lt;/td&gt;
+      &lt;td&gt;Digital 12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;IRQ&lt;/td&gt;
+      &lt;td&gt;-&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;GND&lt;/td&gt;
+      &lt;td&gt;GND&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;RST&lt;/td&gt;
+      &lt;td&gt;Digital 9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3.3V&lt;/td&gt;
+      &lt;td&gt;3.3V&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;Berikut skematik dari &lt;a href=&quot;https://randomnerdtutorials.com/security-access-using-mfrc522-rfid-reader-with-arduino/&quot; target=&quot;_blank&quot;&gt;RandomNerdTutorials&lt;/a&gt;:
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-5.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Karena menggunakan breadboard, maka tidak persis skematik, karena breadboard akan menjadi perantara hubungan antara Wiring ke Arduino dengan Pin pada modul RC522, jadi akhirnya terlihat seperti ini
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-4.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;cek-dumpinfo-kartu-aslilama&quot;&gt;Cek DumpInfo Kartu Asli/Lama&lt;/h3&gt;
+&lt;p&gt;Setelah koneksi siap, maka saya memastikan bahwa kartu asli yang mau diduplikat adalah model kartu yang cocok dengan kartu duplikat. Caranya adalah dengan mengakses submenu &lt;strong&gt;Examples&lt;/strong&gt; pada menu &lt;strong&gt;File&lt;/strong&gt; pada Arudino IDE, program yang perlu digunakan adalah &lt;strong&gt;DumpInfo&lt;/strong&gt; lalu upload sketch ke Arduino dengan tombol &lt;strong&gt;Upload&lt;/strong&gt; hingga muncul pesan&lt;br /&gt;
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-7.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Menu &lt;strong&gt;Serial Monitor&lt;/strong&gt; akan menampilkan data kartu ketika kartu didekatkan dengan modul RC522, tapi yang perlu dicatat hanyalah &lt;strong&gt;UID&lt;/strong&gt;.&lt;br /&gt;
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-8.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;proses-duplikat-ke-kartu-baru&quot;&gt;Proses Duplikat ke Kartu Baru&lt;/h3&gt;
+&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-12.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
+Setelah mencatat UID yang perlu dicopy, dalam kasus ini adalah &lt;strong&gt;EC F6 33 49&lt;/strong&gt;, maka tinggal mengakses example bernama &lt;strong&gt;ChangeUID&lt;/strong&gt;, lalu buat perubahan pada line yang mendefinisikan UID baru, diubah sesuai dengan UID yang diinginkan.&lt;br /&gt;
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-9.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;br /&gt;
+Menjadi&lt;br /&gt;
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-10.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Setelah upload dan melihat output Serial Monitor, maka ketika mendekatkan &lt;strong&gt;kartu baru&lt;/strong&gt; ke modul RC522, maka Arduino akan langsung menulis ulang UID kartu sesuai yang didefinisikan. Hal tersebut bisa dipastikan dengan output seperti dibawah:&lt;br /&gt;
+&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-11.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;br /&gt;
+Dari output tersebut, UID kartu yang sebelumnya &lt;strong&gt;7D 53 63 32&lt;/strong&gt; menjadi &lt;strong&gt;EC F6 33 49&lt;/strong&gt;. Sesuai dengan kartu lama!!&lt;/p&gt;
+
+&lt;p&gt;Maka dapat disimpulkan bahwa proses duplikat telah berhasil, kartu baru sudah dapat digunakan sebagai cadangan.&lt;/p&gt;
+
+&lt;h2 id=&quot;final-thoughts&quot;&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h2&gt;
+&lt;p&gt;Melakukan duplikat kartu RFID menggunakan Arduino memberikan pengalaman hands-on terhadap Arduino dan modul RFID nya, memperluas pengetahuan saya tentang teknologi RFID, jenis-jenis yang tersedia, serta membantu saya mengenali berbagai macam tipe RFID dari frekuensi, struktur memori, serta model yang berbeda.&lt;/p&gt;
+
+&lt;p&gt;Selain itu saya jadi bisa menghemat uang dengan menyiapkan kartu duplikat, yang bisa mencegah saya harus membayar denda kehilangan kartu seperti ini yang nilai dendanya tidak fair.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"></summary></entry><entry><title type="html">Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah" /><published>2021-12-07T22:00:00+07:00</published><updated>2021-12-07T22:00:00+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html">&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-winols.jpg&quot; alt=&quot;Remap CBR250RR sendiri modal 650 Ribu&quot; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Remapping ECU bawaan motor belakangan ini lagi hot, dan mulai mainstream. Banyak orang memilih remap sebagai satu langkah upgrade performa.&lt;br /&gt;
 Saya sendiri sempat tertarik menggunakan jasa remap bengkel untuk upgrade performa, tapi biaya remap motor saya di bengkel-bengkel kisaran &lt;strong&gt;1 jutaan&lt;/strong&gt; untuk 1x remap.&lt;/p&gt;
