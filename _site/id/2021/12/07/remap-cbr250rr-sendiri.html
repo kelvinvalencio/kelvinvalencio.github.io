@@ -5,22 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="google-site-verification" content="p1E5Y7Ps3AeCKLcOE1gWXtRCXl8gkaZZSVr57DNwWoQ" />
   <link rel="icon" type="image/png" href="/assets/logo.png" /><!-- Begin Jekyll SEO tag v2.7.1 -->
-<title>Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah | Kelvin Valencio’s Github Blog</title>
+<title>DIY Engine Control Unit ROM Reflashing (di CBR250RR) | Kelvin Valencio’s Github Blog</title>
 <meta name="generator" content="Jekyll v3.9.0" />
-<meta property="og:title" content="Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah" />
+<meta property="og:title" content="DIY Engine Control Unit ROM Reflashing (di CBR250RR)" />
 <meta name="author" content="Kelvin Valencio" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="Tutorial belajar remap sendiri CBR250RR cukup dengan budget 650 Ribu, serta penjelasan konsep remapping/reflashing secara umum!" />
-<meta property="og:description" content="Tutorial belajar remap sendiri CBR250RR cukup dengan budget 650 Ribu, serta penjelasan konsep remapping/reflashing secara umum!" />
+<meta name="description" content="Reflashing ECU CBR250RR MC51 K64" />
+<meta property="og:description" content="Reflashing ECU CBR250RR MC51 K64" />
 <link rel="canonical" href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" />
 <meta property="og:url" content="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" />
 <meta property="og:site_name" content="Kelvin Valencio’s Github Blog" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2021-12-07T22:00:00+07:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah" />
+<meta property="twitter:title" content="DIY Engine Control Unit ROM Reflashing (di CBR250RR)" />
 <script type="application/ld+json">
-{"url":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html","headline":"Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah","dateModified":"2021-12-07T22:00:00+07:00","datePublished":"2021-12-07T22:00:00+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html"},"author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"BlogPosting","description":"Tutorial belajar remap sendiri CBR250RR cukup dengan budget 650 Ribu, serta penjelasan konsep remapping/reflashing secara umum!","@context":"https://schema.org"}</script>
+{"url":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html","headline":"DIY Engine Control Unit ROM Reflashing (di CBR250RR)","dateModified":"2021-12-07T22:00:00+07:00","datePublished":"2021-12-07T22:00:00+07:00","mainEntityOfPage":{"@type":"WebPage","@id":"http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html"},"author":{"@type":"Person","name":"Kelvin Valencio"},"@type":"BlogPosting","description":"Reflashing ECU CBR250RR MC51 K64","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/main.css"><link type="application/atom+xml" rel="alternate" href="http://localhost:4000/feed.xml" title="Kelvin Valencio&apos;s Github Blog" /></head>
 <body><header class="site-header" role="banner">
@@ -43,7 +43,7 @@
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Cara Remap CBR250RR Sendiri Dengan Modal 650 Ribu Rupiah</h1>
+    <h1 class="post-title p-name" itemprop="name headline">DIY Engine Control Unit ROM Reflashing (di CBR250RR)</h1>
     <p class="post-meta">
       <time class="dt-published" datetime="2021-12-07T22:00:00+07:00" itemprop="datePublished">Dec 7, 2021
       </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Kelvin Valencio</span></span></p>
@@ -51,27 +51,25 @@
   </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <p><img src="/assets/images/remap-cbr250rr-sendiri-winols.jpg" alt="Remap CBR250RR sendiri modal 650 Ribu" /></p>
+    <p><img src="/assets/images/remap-cbr250rr-sendiri-winols.jpg" alt="Reflash CBR250RR" /></p>
 
-<p>Remapping ECU bawaan motor belakangan ini lagi hot, dan mulai mainstream. Banyak orang memilih remap sebagai satu langkah upgrade performa.<br />
-Saya sendiri sempat tertarik menggunakan jasa remap bengkel untuk upgrade performa, tapi biaya remap motor saya di bengkel-bengkel kisaran <strong>1 jutaan</strong> untuk 1x remap.</p>
+<p>ECU - komputer pada kendaraan injeksi yang mengolah berbagai input dan keadaan kendaraan, dan menentukan perilaku mesin, dan komponen elektronik kendaraan lainnya.</p>
 
-<p>Jadi saya coba research untuk remap/reflash sendiri selama beberapa minggu. Selain murah, <ins>saya punya kebebasan mau remap berapa kali tanpa bayar lagi</ins>.</p>
+<p>Reflashing ECU merupakan proses mengubah parameter pada kendaraan yang sudah ditentukan pabrik, biasanya dilakukan demi mendongkrak performa. Bagaimana? Dengan mengubah sudut pengapian, sudut &amp; durasi injektor, rev limiter, dan lainnya yang sudah ditentukan dari pabrik.</p>
+
+<p>Reflash &amp; remap biasanya dikenakan 700 ribu hingga 1 juta rupiah, mahalnya jasa ini serta tumbuhnya rasa ingin tahu saya dengan proses dan apa saja yang bisa dimodifikasi dari ECU standar ini membuat saya terjun ke topik ini dan melakukan pendalaman selama beberapa bulan.</p>
 
 <p>Karena kepuasan saya melakukan DIY remap, akan saya bahas di postingan ini, gambaran besar tentang reflashing/remapping hingga langkah-langkah persisnya khusus untuk model motor ini.</p>
 
-<h2 id="resiko-saran-peringatan"><strong>Resiko, Saran, Peringatan</strong></h2>
+<h2 id="peringatan"><strong>Peringatan</strong></h2>
 <ul>
-  <li>Resiko terburuk bisa merusak ECU dan merusak motor</li>
-  <li>Saya anjurkan sebelum melaksanakan, pastikan kalian setidaknya cukup familiar dengan komputer dan driver komputer</li>
   <li>Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin langkahnya berbeda</li>
   <li>Saya tidak bertanggung jawab atas konsekuensi dari percobaan yang kalian lakukan. Postingan ini ditujukan untuk panduan</li>
-  <li>Apabila informasi yang saya sediakan kurang/tidak akurat, yang kalian lakukan terhadap informasi ini bukan tanggung jawab saya, tapi saya menerima <em>feedback</em> untuk merevisi jika ada kesalahan</li>
 </ul>
 
 <h2 id="tools"><strong>Tools</strong></h2>
 <p><img src="/assets/images/remap-cbr250rr-sendiri-alat-remap.jpg" alt="Remap CBR250RR sendiri: alat remap" />
-Berikut hardware dan software yang perlu disiapkan. Saran saya luangin waktu kalian buat cari-cari tool yang dijual dengan teliti supaya mendapatkan harga terbaik dan sesuai. Saya sendiri berhasil mencari kelengkapan alat-alat dengan budget tidak melebihi biaya remap di bengkel-bengkel.</p>
+Berikut hardware dan software yang perlu disiapkan.</p>
 
 <table>
   <thead>
@@ -84,33 +82,23 @@ Berikut hardware dan software yang perlu disiapkan. Saran saya luangin waktu kal
   <tbody>
     <tr>
       <td>write hardware/Alat Remap (K-Line Flash Tool)</td>
-      <td style="text-align: right">Rp 450.000</td>
-      <td><a href="https://shopee.co.id/product/277642167/5561381862?smtt=0.197913951-1638877447.9" target="_blank">Shopee</a></td>
+      <td style="text-align: right">Rp ~250.000</td>
+      <td> </td>
     </tr>
     <tr>
       <td>File Binary (<code class="language-plaintext highlighter-rouge">BIN</code>) dan Definition (<code class="language-plaintext highlighter-rouge">XDF</code>) untuk CBR250RR</td>
-      <td style="text-align: right"><del>Rp 1.000.000 - 2.000.000</del> <em>Free</em> dari saya</td>
+      <td style="text-align: right"><em>Free</em></td>
       <td><a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">Download Disini</a></td>
     </tr>
     <tr>
       <td>Write Software (HondaECU 3.02, 3.5x, atau HondaFlasher)</td>
-      <td style="text-align: right">Rp 600.000 - 1.000.000</td>
-      <td><a href="https://www.tokopedia.com/search?st=product&amp;q=honda%20flash&amp;navsource=home" target="_blank">Tokopedia</a></td>
-    </tr>
-    <tr>
+      <td style="text-align: right">Rp 2.000.000</td>
       <td> </td>
-      <td style="text-align: right">Rp 200.000</td>
-      <td>Kontak saya untuk write software 200.000</td>
     </tr>
     <tr>
       <td>TunerPro Free</td>
       <td style="text-align: right"><em>Free</em></td>
       <td><a href="https://www.tunerpro.net/downloadApp.htm" target="_blank">Download disini</a></td>
-    </tr>
-    <tr>
-      <td><strong>Total Termurah</strong></td>
-      <td style="text-align: right"><strong>Rp 650.000</strong></td>
-      <td> </td>
     </tr>
   </tbody>
 </table>
@@ -121,35 +109,39 @@ Berikut hardware dan software yang perlu disiapkan. Saran saya luangin waktu kal
   <li><code class="language-plaintext highlighter-rouge">TunerPro</code> adalah software untuk mengubah pengaturan ECU. <code class="language-plaintext highlighter-rouge">TunerPro</code> memerlukan <code class="language-plaintext highlighter-rouge">BIN</code> yang akan di edit, dan <code class="language-plaintext highlighter-rouge">XDF</code> yang mendefinisikan parameter yang ada di <code class="language-plaintext highlighter-rouge">BIN</code>.</li>
   <li><code class="language-plaintext highlighter-rouge">BIN</code> adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Beda motor tentu beda binary. Didalamnya ada pengaturan seperti:
     <ul>
-      <li>Mapping bensin</li>
-      <li>Mapping pengapian</li>
-      <li>Pengaturan limiter RPM</li>
+      <li>Map bensin</li>
+      <li>Map pengapian</li>
+      <li>Rev Limiter</li>
       <li>Dan masih banyak lagi</li>
     </ul>
   </li>
   <li><code class="language-plaintext highlighter-rouge">XDF</code> adalah file Definition yang menjelaskan letak alamat pengaturan yang ada di <code class="language-plaintext highlighter-rouge">BIN</code>. <strong>File XDF beda-beda tiap motor</strong>, karena beda <code class="language-plaintext highlighter-rouge">BIN</code> tentunya beda <code class="language-plaintext highlighter-rouge">XDF</code> karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di <code class="language-plaintext highlighter-rouge">BIN</code>.</li>
 </ul>
 
+<p><img src="/assets/images/remap-cbr250rr-binary_patching.jpg" alt="Reflash CBR250RR" /></p>
+<h3 id="tunerpro-definition-building">TunerPro Definition Building</h3>
+<p>Salah satu tahap yang <em>time-consuming</em>  adalah membuat binary definition, pada kasus ini binary definition yang dibangun adalah XDF atau TunerPro Definition File. Sebagai definition builder, tugas kita adalah menentukan byte range pada ROM/binary ECU, menganalisa berdasarkan pengetahuan, pemahaman tentang pola map, untuk menyimpulkan:</p>
+<ul>
+  <li>jenis tabel (fuel map, ignition map, etc.)</li>
+  <li>dimensi tabel (10x20? 20x10?)</li>
+  <li>axis dari tabel (x=throttle, y=rpm, z=fuel?)</li>
+</ul>
+
+<p>informasi ini kemudian dikemas menjadi XDF pakai TunerPro, sebagai interface untuk Tuner dengan mudahnya memodifikasi nilai-nilai pada ROM ECU, melakukan operasi pada tabel seperti <em>scale by percent</em>, <em>smooth table</em>, dan <em>interpolate</em>.</p>
+
+<h3 id="file-xdf-untuk-cbr250rr">File XDF untuk CBR250RR</h3>
+<p>Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
+Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="https://kelvinvalencio.github.io/projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download disini.</a></p>
+
 <h3 id="sebenernya-binary-patching">Sebenernya Binary Patching</h3>
-<p>Jadi ketika kita melakukan remap/reflash, kurang lebih yang kita lakukan adalah <a href="https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/" target="_blank">binary patching atau patching</a>.<br />
+<p>Jadi ketika kita melakukan reflash, kurang lebih yang kita lakukan adalah <a href="https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/" target="_blank">binary patching atau patching</a>.<br />
 Simpelnya, kita membaca nilai-nilai yang ada di file mentah <code class="language-plaintext highlighter-rouge">BIN</code> tersebut, lalu kita ubah nilainya, lalu kita kirim kembali ke ECU!</p>
 
-<h3 id="tentang-checksum">Tentang Checksum</h3>
+<h3 id="checksum">Checksum</h3>
 <p>Checksum pada ECU umumnya adalah rentang alamat khusus yang berisi nilai checksum, untuk menentukan integritas dari binary.<br />
 Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan nilai-nilai yang ada di binary. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya <strong>harus dihitung ulang</strong>. Jika tidak, saat ECU melakukan proses <strong>booting</strong> dan menemukan bahwa checksum tidak sesuai dengan angka yang ada di ECU, motor mungkin tidak mau nyala karena dianggap ada perubahan pada memori yang tidak disengaja.</p>
 
 <p>Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun write software seperti <a href="https://mcuinnovations.com/software/hondaecu/" target="_blank">HondaECU</a> sudah dapat melakukan <strong>checksum correction</strong> secara sendirinya. Jadi saat binary yang berubah hendak dikirim ke ECU, write software tertentu akan mengubah lagi nilai checksum sesuai dengan kalkulasi yang seharusnya.</p>
-
-<h3 id="siapa-yang-bikin-xdf-gimana-bikin-xdf">Siapa Yang Bikin XDF? Gimana Bikin XDF?</h3>
-<p>XDF dibuat oleh orang biasa, kalian juga bisa bikin XDF sendiri. XDF suatu ECU ada yang lengkap, ada XDF yang kurang lengkap.<br />
-Biasanya XDF diperjualbelikan oleh orang yang meluangkan waktunya untuk menganalisa file <code class="language-plaintext highlighter-rouge">.bin</code> suatu ECU.<br />
-Umumnya pembuatan XDF dilakukan dengan menganalisa <code class="language-plaintext highlighter-rouge">.bin</code> mentah, umumnya menggunakan software <a href="https://www.evc.de/en/product/ols/software/" target="_blank">WinOLS</a>, karena bisa membantu memprediksi mapping berdasarkan pola pada file bin.</p>
-
-<h3 id="file-xdf-untuk-cbr250rr">File XDF untuk CBR250RR</h3>
-<p>Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
-Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="https://kelvinvalencio.github.io/projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download gratis disini.</a></p>
-
-<p>Untuk cara menganalisa dan membuat XDF sendiri mungkin bakal saya bahas di postingan mendatang.</p>
 
 <h3 id="flashing-ke-ecu">Flashing ke ECU</h3>
 <p><img src="/assets/images/remap-cbr250rr-sendiri-write-software.png" alt="Remap CBR250RR sendiri write software/flasher software" /></p>
@@ -161,12 +153,10 @@ Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta
 <h2 id="execution"><strong>Execution</strong></h2>
 <h3 id="persiapan">Persiapan</h3>
 <ol>
-  <li>Download virtual driver zadig, cari versi 2.5 yang <a href="https://zadig.akeo.ie/downloads/" target="_blank">di-download disini</a>. Ingat, ini hanya untuk HondaECU 3.02</li>
+  <li>Download driver software yang sesuai</li>
   <li>Download <code class="language-plaintext highlighter-rouge">BIN</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/raw/main/CBR250RR-38770-K64-N04_BIN.bin" target="_blank">CBR250RR 38770-K64-N04 disini</a></li>
   <li>Download <code class="language-plaintext highlighter-rouge">XDF</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">CBR250RR 38770-K64-N04 disini</a>. Pilih versi release terbaru, lalu klik bagian <strong>assets</strong>, lalu klik file <code class="language-plaintext highlighter-rouge">.xdf</code>nya. Di contoh ini kita akan pake versi v0.95 yang bisa langsung <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases/download/38770-K64-N04-v0.95/CBR250RR_38770-K64-N04_PUBLIC_v095.xdf" target="_blank">di-download disini</a></li>
-  <li>Buka <code class="language-plaintext highlighter-rouge">TunerPro</code></li>
-  <li>Pada menu <code class="language-plaintext highlighter-rouge">TunerPro</code>, klik <code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Open Bin</code>, lalu pilih file <code class="language-plaintext highlighter-rouge">.bin</code> yang sudah di-download</li>
-  <li>Pada menu <code class="language-plaintext highlighter-rouge">TunerPro</code>, klik <code class="language-plaintext highlighter-rouge">XDF</code> &gt; <code class="language-plaintext highlighter-rouge">Select XDF</code>, lalu pilih file <code class="language-plaintext highlighter-rouge">.xdf</code> yang sudah di-download</li>
+  <li>Buka TunerPro, open bin dan XDF, lakukan perubahan yang diinginkan pada parameter yang tersedia.</li>
 </ol>
 
 <h3 id="mengubah-binaryrom">Mengubah binary/ROM</h3>
@@ -183,31 +173,20 @@ Di contoh ini, kita akan mencoba menaikkan RPM Limiter CBR250RR kita dari 14000 
 
 <h3 id="flashing-ke-ecu-1">Flashing ke ECU</h3>
 <p><img align="center" height="343" width="493" src="/assets/images/remap-cbr250rr-sendiri-physical-setup.jpg" alt="Belajar remap CBR250RR sendiri" /><br />
-Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggunakan HondaECU 3.02 untuk writing ke ECU</p>
+Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggunakan software HondaECU untuk writing ke ECU</p>
 <ol>
   <li>Sambungkan alat remap ke PC/laptop</li>
-  <li>Buka aplikasi zadig, klik <code class="language-plaintext highlighter-rouge">options</code> &gt; <code class="language-plaintext highlighter-rouge">show all devices</code></li>
-  <li>Pada zadig, pilih device yang sesuai dengan alat remap kalian, umumnya bertuliskan <code class="language-plaintext highlighter-rouge">FT232R USB UART</code>, lalu pada field driver disamping icon <strong>panah/arrow</strong>, pilih libusbK v3.0.7.0, lalu klik replace driver, hingga muncul dialog box bahwa sudah berhasil
-<img src="/assets/images/remap-cbr250rr-sendiri-zadig.png" alt="Remap CBR250RR sendiri zadig" /></li>
-  <li>Buka tempat duduk pengendara, didalamnya ada kabel Data Link Connector (DLC).</li>
-  <li>Sambungkan kabel DLC dengan alat remap</li>
-  <li>Nyalakan kontak motor, <strong>pastikan kill switch di keadaan on</strong> (bukan nyalain motor)</li>
-  <li>Buka write software, di contoh ini kita pake HondaECU v3.02</li>
-  <li>Pilih menu <code class="language-plaintext highlighter-rouge">ECU info</code>, pastikan field <code class="language-plaintext highlighter-rouge">state</code> tertulis <code class="language-plaintext highlighter-rouge">ECUSTATE.OK</code> sebelum melanjutkan, jika belum berarti ECU belum terdeteksi.</li>
-  <li>Pilih menu <code class="language-plaintext highlighter-rouge">Write ECU</code></li>
-  <li>Pilih file .bin yang sudah diubah</li>
-  <li>Pastikan centang <code class="language-plaintext highlighter-rouge">Fix</code> pada <code class="language-plaintext highlighter-rouge">Checksum Location</code></li>
-  <li><code class="language-plaintext highlighter-rouge">Start Offset</code> diisi dengan <code class="language-plaintext highlighter-rouge">0x0</code>. Karena untuk CBR250RR, flashing dimulai dari awal alamat ROM</li>
-  <li><code class="language-plaintext highlighter-rouge">Checksum Location</code> diisi dengan <code class="language-plaintext highlighter-rouge">7FFF8</code> atau <code class="language-plaintext highlighter-rouge">0x7FFF8</code>. Ini sangat penting supaya write software dapat melakukan <strong>checksum correction</strong> secara otomatis.</li>
-  <li>Klik <strong>start</strong></li>
-  <li>Tunggu sekitar 20 menit hingga writing selesai</li>
+  <li>Hubungkan kabel DLC ke laptop melalui reflash hardware</li>
+  <li>Browse file bin yang sudah dimodifikasi</li>
+  <li>Atur checksum address, spesifik model kendaraan saya ada di <code class="language-plaintext highlighter-rouge">0x7FFF8</code></li>
+  <li>Start flashing dan tunggu sampai selesai</li>
 </ol>
 
 <h2 id="final-thoughts"><strong>Final Thoughts</strong></h2>
 <p>DIY Reflashing sudah umum di negeri luar, komunitas dan material belajar yang tersedia cukup banyak, sehingga mendukung individu yang penasaran.<br />
 Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.</p>
 
-<p>Udah bisa remap, sekarang apa? Tahap selanjutnya saya saranin pelajari konsep seperti ignition tuning, fuel tuning. Saya rekomen video-video dari channel Youtube <a href="https://www.youtube.com/watch?v=5KdbEXYD224" target="_blank">HP Academy</a>, yang memberikan pegangan konsep yang baik tentang tuning mesin injeksi.<br />
+<p>Udah bisa reflash, sekarang apa? Tahap selanjutnya saya saranin pelajari konsep tuning seperti ignition tuning, fuel tuning. Saya rekomen video-video dari channel Youtube <a href="https://www.youtube.com/watch?v=5KdbEXYD224" target="_blank">HP Academy</a>, yang memberikan pengenalan konsep yang baik tentang tuning mesin injeksi.<br />
 Dari situ kalo kalian udah nyaman dengan teorinya, baru coba mengubah Fuel dan Ignition Map.</p>
 
   </div><script src="https://utteranc.es/client.js"
