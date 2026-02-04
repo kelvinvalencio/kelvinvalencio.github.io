@@ -1,348 +1,447 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2024-01-27T00:35:16+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Duplikat Kartu RFID Sendiri Menggunakan Arduino</title><link href="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" rel="alternate" type="text/html" title="Duplikat Kartu RFID Sendiri Menggunakan Arduino" /><published>2022-01-27T22:00:00+07:00</published><updated>2022-01-27T22:00:00+07:00</updated><id>http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino</id><content type="html" xml:base="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html">&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2026-02-04T16:13:21+07:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">Kelvin Valencio’s Github Blog</title><subtitle>Some blog posts about IT &amp; Other things</subtitle><author><name>Kelvin Valencio</name></author><entry><title type="html">Building My Own Budget Homelab for Experimenting and Self-Hosting</title><link href="http://localhost:4000/en/2026/02/02/building-homelab.html" rel="alternate" type="text/html" title="Building My Own Budget Homelab for Experimenting and Self-Hosting" /><published>2026-02-02T15:00:00+07:00</published><updated>2026-02-02T15:00:00+07:00</updated><id>http://localhost:4000/en/2026/02/02/building-homelab</id><content type="html" xml:base="http://localhost:4000/en/2026/02/02/building-homelab.html"><![CDATA[<blockquote class="imgur-embed-pub" lang="en" data-id="CMw0OgC"><a href="https://imgur.com/CMw0OgC"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;p&gt;Penerapan RFID udah luas banget. Contohnya member parkir, absen di kampus, absen di kantor, kunci pintu rumah, dan masih banyak lagi.&lt;br /&gt;
-Setelah belajar lebih lanjut soal RFID, ternyata kartu RFID bisa diclone jika menggunakan kartu yang &lt;a href=&quot;https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia&quot; target=&quot;_blank&quot;&gt;UID-rewritable&lt;/a&gt;.&lt;/p&gt;
+<p>I’ve always wanted to have a private server that I can reach anywhere, do lots of experiments on it, and also to start self-hosting. I’ve finally had the time to repurpose some old eletronics of mine into a super budget homelab. Scrolling through the abundant open-source tools out there really tempts me to host them myself, as I often browse around for new tools that can be implemented into my old workplace. Now that I’ve been running it for a week, I’d like to share my setup and decisions in the underying tech. :D</p>
 
-&lt;p&gt;Tinggal di salah satu lingkungan yang sudah menerapkan sistem keluar masuk menggunakan kartu seperti ini, membuat saya termotivasi untuk belajar duplikat kartu RFID. Pasalnya, saya sering menghilangkan kartu seperti ini, dan jika kehilangan kartu member ini umumnya &lt;strong&gt;dikenakan denda&lt;/strong&gt; oleh pihak layanan sistem ini.&lt;/p&gt;
+<p>My goal is to learn. I’m planning on practicing IaC using Ansible, basically create VM &gt; break it &gt; destroy it &gt; repeat. Another thing is to learn GitOps, Observability, and other enterprise pattern. I also love to serve some useful services such as media streaming, open source tools, file transfer, etc. The constraint is that <strong>it has to be super budget</strong>, so I’ll only repurpose my existing hardware laying around. That way, my electricity bill will beat deploying cloud instances by a mile!</p>
 
-&lt;p&gt;Denda ini umumnya mulai dari Rp 50.000. Padahal jelas harga kartu RFID yang &lt;a href=&quot;https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia&quot; target=&quot;_blank&quot;&gt;UID-rewritable&lt;/a&gt; tidak mencapai 8 ribu. Faktanya, saya membeli kartu duplikat ini dengan harga 7 ribu rupiah.&lt;/p&gt;
+<h2 id="the-hardware">The Hardware</h2>
+<blockquote class="imgur-embed-pub" lang="en" data-id="yDEqYnG"><a href="https://imgur.com/yDEqYnG"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;p&gt;Keputusan saya untuk menggunakan Arduino berdasarkan pertimbangan bahwa:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;Untuk memiliki hands-on experience terhadap Arduino&lt;/li&gt;
-  &lt;li&gt;Budget saya tidak mencapai/melebihi alat clone yang berkisar 120 ribu rupiah atau lebih&lt;/li&gt;
-&lt;/ul&gt;
+<p>I happen to have two PCs laying around, ready for my experiment :D</p>
+<ol>
+  <li>
+    <p>beast<br />
+ It’s an old hostname from 2013. It was once a beast..<br />
+ 2013 hardware. Intel i5 3470 CPU and 16GB DDR3 Memory.
+ I installed <a href="https://www.proxmox.com/en/">Proxmox</a> on this thing.</p>
+  </li>
+  <li>
+    <p>rose<br />
+ Intel i5 10500 CPU and 16GB DDR4 Memory.
+ This is my current workstation running Windows 11.</p>
+  </li>
+</ol>
 
-&lt;p&gt;Kebanyakan HP yang mendukung NFC bisa digunakan untuk duplikat, tapi perlu kartu khusus yang mendukung aplikasi seperti &lt;a href=&quot;https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool&quot; target=&quot;_blank&quot;&gt;Mifare Classic Tool di Android&lt;/a&gt;. Jadi kartu yang bisa ditulis dengan modul Arduino ini belum tentu bisa ditulis ulang menggunakan aplikasi tersebut.&lt;/p&gt;
+<p>For the networking, I use two things:</p>
+<ol>
+  <li>8-port gigabit switch</li>
+  <li>A low-end Mikrotik router</li>
+</ol>
 
-&lt;p&gt;Pada post ini saya hanya membahas duplikat menggunakan Arduino. Untuk duplikat menggunakan HP NFC mungkin akan saya bahas di lain post.&lt;/p&gt;
+<h2 id="architecture--setup">Architecture &amp; Setup</h2>
+<h3 id="systems">Systems</h3>
+<p>First thing I did was install <a href="https://www.proxmox.com/en/">Proxmox</a> on <strong>beast</strong>. The reason I’m using virtualization is because I often experiment with VMs and then destroy it. I’m thinking <a href="https://www.proxmox.com/en/">Proxmox</a> is the one for the job because it’s free, open-source, and most importantly, unlike VMware, it supports Realtek network adapter, which most home PCs use.<br />
+The other one, <strong>rose</strong>, well, it’s my workstation that I use sometimes when I get home. So I’m setting up a WSL2 with bridge mode and configure it so it doesn’t die, running Rocky Linux 9 image. WSL will host a simple monitoring stack, and serve SMB for movies I downloaded + <a href="https://www.xda-developers.com/foss-file-server-copyparty/">CopyParty</a></p>
 
-&lt;h2 id=&quot;tools&quot;&gt;&lt;strong&gt;Tools&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-2.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
-Berikut peralatan yang saya gunakan beserta harganya. Tentunya harga beda-beda tiap lapak, namun saya cukup puas dengan belanjaan dibawah:&lt;/p&gt;
+<p>For each VM I’ll be using Rocky Linux 9 Minimal, and I’ll host services using Docker.</p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Nama&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Harga&lt;/th&gt;
-      &lt;th&gt;Link&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Arduino Uno R3 Clone&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 65.000&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/toko-tekno/arduino-uno-r3-clone&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Modul Arduino: RFID RC522&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 3.250&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/tekno-kreasi-elektronik/sensor-rfid-rc522-module-rfid-module-rfid-card&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Solder 40w&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;8.800&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/zencarparts/alat-solder-listrik-patri-listrik-timah-soldering-iron-40w-40watt-220v&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Timah untuk solder&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;11.900&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/meinaelektrik/welsolo-vvs-633a-timah-gulung-solder-timah-soldering-original-0-3mm&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Breadboard 830&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 11.600&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/mirorim/mb-102-breadboard-830-holes-lubang-solderless-for-prototyping-arduino&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Kabel Jumper Arduino Male to Male minimal 7 pcs&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 5.800&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/roboware/kabel-jumper-pelangi-arduino-20cm-male-to-male-20-pcs-breadboard&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Kartu Mifare Classic 1K 13.57MHz Rewritable UID&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 7.000&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tokopedia.com/electron/13-56-mhz-rewritable-uid-card-writable-rewritable-clone-duplicate&quot; target=&quot;_blank&quot;&gt;Tokopedia&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;&lt;strong&gt;Total&lt;/strong&gt;&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;strong&gt;Rp 113.350&lt;/strong&gt;&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<h3 id="security-network-exposing-to-the-internet">Security, Network, Exposing to The Internet</h3>
+<p>The solution I incorporate is <a href="https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-tunnel/">Cloudflared</a>. The reason why I don’t use my ISP’s networking is because they don’t offer the static IP address anymore. For secure private access, most people would’ve used WireGuard or Tailscale, and I too, have had my fair share of days using those. But for this setup I’ll be using <a href="https://www.cloudflare.com/en-gb/zero-trust/products/access/">Cloudflare’s ZeroTrust</a>. Everything is free, except for the domain that I bought, and so far so good; I’ve not been once limited by the free plan’s constraints, I really think Cloudflare has some excellent product stack for Homelab-ing!<br />
+So I installed cloudflared on both the host of rose and beast.</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="y8mVSqI"><a href="https://imgur.com/y8mVSqI"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;p&gt;Solder dan timah digunakan untuk melakukan solder pin header modul RFID dengan board RFIDnya. Sebaiknya punya solder, tapi saya sendiri pertama kali mengoperasikan solder saat membuat project ini.&lt;br /&gt;
-Breadboard dan kabel jumper digunakan untuk menghubungkan modul RFID dengan Arduino.&lt;br /&gt;
-Kartu RFID harus tipe Mifare Classic 1K UID Rewritable, karena merupakan kartu yang paling umum digunakan. Ingat untuk tidak menggunakan kartu yang didapatkan dari paket modul RC522, karena kartu-kartu tersebut hanya UID read-only.&lt;/p&gt;
+<blockquote class="imgur-embed-pub" lang="en" data-id="hcrVP8l"><a href="https://imgur.com/hcrVP8l"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;h2 id=&quot;overview&quot;&gt;Overview&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-3.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
-Kartu RFID itu ada banyak model dan kadang tidak kompatibel antara satu sama lain. Kebanyakan kartu yang digunakan untuk kartu absen, kartu parkir, kartu member, dll. adalah &lt;strong&gt;NXP Mifare Classic 1K&lt;/strong&gt; dengan standar ISO 14443 Type A, yang bekerja di frekuensi tinggi (13.57 MHz).&lt;br /&gt;
-Kartu ini menampung data 1024 byte, terdiri dari 16 sektor memiliki UID atau Unique Identifier pada &lt;strong&gt;4 byte&lt;/strong&gt; pertama di sektor 0 dari block memori kartu ini. Kartu Mifare 1K yang mendukung UID-rewritable umumnya hanya bisa tulis ulang pada sektor 0.&lt;/p&gt;
+<p>Public access is also easy, any domains managed by Cloudflare can be used for me to publish apps by mapping domains/subdomains into application URL and port. I’m directing them to my reverse proxy.</p>
 
-&lt;p&gt;Ketika melakukan duplikat kartu, yang biasanya perlu dicapai adalah menduplikat 4 byte pertama dari sektor 0 pada kartu RFID. Jadi yang akan saya bahas di post ini adalah memasang Arduino dengan modulnya, lalu menggunakan example library dari Arduino IDE untuk membaca UID kartu yang mau diduplikat, lalu menulis UID pada kartu duplikat.&lt;/p&gt;
+<p>I also have my second router + 8-port gigabit switch to isolate them away from the ISP’s router.</p>
+<h3 id="main-services">Main Services</h3>
+<blockquote class="imgur-embed-pub" lang="en" data-id="EU7Qx1T"><a href="https://imgur.com/EU7Qx1T"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;h2 id=&quot;execution&quot;&gt;&lt;strong&gt;Execution&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;persiapan&quot;&gt;Persiapan&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-6.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
-Pada tahap persiapan, saya mendownload Arduino IDE yang bisa &lt;a href=&quot;https://www.arduino.cc/en/software&quot; target=&quot;_blank&quot;&gt;didownload disini&lt;/a&gt;, kemudian mendownload library MFRC522 oleh GithubCommunity yang bisa diinstall melalui menu &lt;strong&gt;Manage Libraries&lt;/strong&gt; pada menu &lt;strong&gt;Sketch&lt;/strong&gt;.&lt;/p&gt;
+<ul>
+  <li>
+    <p>PDF manipulation<br />
+  It bothers me that so many people in my old workplace use ILovePDF and similar online tools to sign or convert PDFs. It doesn’t seem right.
+  I’d recommend either <a href="https://github.com/alam00000/bentopdf/">BentoPDF</a> or <a href="https://github.com/Stirling-Tools/Stirling-PDF">StirlingPDF</a>. But I go with <a href="https://github.com/alam00000/bentopdf/">BentoPDF</a>.</p>
+  </li>
+  <li>
+    <p>Movie streaming<br />
+  <a href="https://github.com/plexinc/pms-docker">Plex</a> and <a href="https://github.com/jellyfin/jellyfin">Jellyfin</a>. Both are fantastic. The cons of Plex is just when I map it into a domain, Plex started asking for a subscription. Turns out Plex asks for money even a self-deployed one. Plex knows when you’re referring to its self-hosted service using domain instead of its original private IP.</p>
+  </li>
+  <li>
+    <p>File Storage<br />
+  For file transfer and storage, I use <a href="https://www.xda-developers.com/foss-file-server-copyparty/">CopyParty</a> and Windows SMB to download/upload files on my workstation, privately.</p>
+  </li>
+  <li>
+    <p>Observability<br />
+  InfluxDB + Grafana that takes in metrics from <a href="https://www.proxmox.com/en/">Proxmox</a>, as well as <a href="https://www.influxdata.com/time-series-platform/telegraf/">Telegraf</a> agent in each VM.</p>
+  </li>
+  <li>
+    <p>Source Control<br />
+  Self-hosted Gitlab for GitOps (Ansible Playbooks &amp; proxy configs)
+  I wanted to give some mercy to these old boxes, so I’m currently migrating it to Github and register my servers as runners.</p>
+  </li>
+</ul>
 
-&lt;p&gt;Setelah itu saya solder pin header dengan modul RFID 522. Pin header include dengan modulnya. Caranya bisa lihat &lt;a href=&quot;https://youtu.be/wv5Mp1mn_8M&quot; target=&quot;_blank&quot;&gt;video ini&lt;/a&gt;&lt;/p&gt;
+<h3 id="gitops">GitOps</h3>
+<p>I use Ansible to procedurally set up &amp; configure the OS, and to deploy services under /home/docker. I just stopped my self-hosted Gitlab and migrating my code to Github since my servers won’t be able to lift Gitlab along with the number of services I keep adding to it.</p>
+<h3 id="observability">Observability</h3>
+<p>For observability, I’m using InfluxDB to store metrics, and Grafana to display it. Uptime Kuma for a quick glance at the services uptime, and I’m using Komodo for container management &amp; alerting.</p>
+<blockquote class="imgur-embed-pub" lang="en" data-id="5TFit0B"><a href="https://imgur.com/5TFit0B"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;h3 id=&quot;pemasangan-arduino-dengan-modul-rc522&quot;&gt;Pemasangan Arduino dengan Modul RC522&lt;/h3&gt;
-&lt;p&gt;Pada tahap pemasangan, Arduino Uno dipasangkan dengan modul RC522 sesuai dengan tabel wiring dibawah:&lt;/p&gt;
+<blockquote class="imgur-embed-pub" lang="en" data-id="wiAGx3s"><a href="//imgur.com/wiAGx3s"></a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Pin&lt;/th&gt;
-      &lt;th&gt;Wiring ke Arduino Uno&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SDA&lt;/td&gt;
-      &lt;td&gt;Digital 10&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;SCK&lt;/td&gt;
-      &lt;td&gt;Digital 13&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;MOSI&lt;/td&gt;
-      &lt;td&gt;Digital 11&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;MISO&lt;/td&gt;
-      &lt;td&gt;Digital 12&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;IRQ&lt;/td&gt;
-      &lt;td&gt;-&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;GND&lt;/td&gt;
-      &lt;td&gt;GND&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;RST&lt;/td&gt;
-      &lt;td&gt;Digital 9&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;3.3V&lt;/td&gt;
-      &lt;td&gt;3.3V&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<blockquote class="imgur-embed-pub" lang="en" data-id="kBqxT8N"><a href="https://imgur.com/kBqxT8N"> </a></blockquote>
+<script async="" src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
-&lt;p&gt;Berikut skematik dari &lt;a href=&quot;https://randomnerdtutorials.com/security-access-using-mfrc522-rfid-reader-with-arduino/&quot; target=&quot;_blank&quot;&gt;RandomNerdTutorials&lt;/a&gt;:
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-5.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<h2 id="final-thoughts">Final Thoughts</h2>
+<h3 id="revisions">Revisions</h3>
+<p>Looking back, I do want to revise things. For one, I’ve been thinking about moving fully to Linux, so I’m planning on nuking rose and just installing Rocky 9 or Linux Mint, then serve some Docker containers.<br />
+I also wanted to experiment with <a href="https://ceph.io/en/">Ceph</a>, I think it’d be great to move my storage disks to beast, and share it through iSCSI.</p>
+<h3 id="kubernetes">Kubernetes?</h3>
+<p>As I mentioned, I’m really doing this for the learning experiences, and I’m into distributed systems these days, so I’ll nuke rose and install a Rocky Linux or Linux Mint instead. Then, I’ll also be adding my old college laptop as a new worker for a Kubernetes Cluster.<br />
+My latest situation is I’m currently setting up Kubernetes one-master-two-workers cluster. rose is the control-plane and I created 2 VMs inside beast as the workers, but I can finally have a real two-worker-nodes by reviving my old college laptop :D. Everything is still messy, but I’m still figuring it out. I’ll be sure to write another post when this cluster is operational.</p>]]></content><author><name>Kelvin Valencio</name></author><category term="en" /><summary type="html"><![CDATA[My experiences of building a super budget homelab mainly for experimenting and self-hosting rather than buying cloud VM services]]></summary></entry><entry><title type="html">Duplikat Kartu RFID Sendiri Menggunakan Arduino</title><link href="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html" rel="alternate" type="text/html" title="Duplikat Kartu RFID Sendiri Menggunakan Arduino" /><published>2022-01-27T22:00:00+07:00</published><updated>2022-01-27T22:00:00+07:00</updated><id>http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino</id><content type="html" xml:base="http://localhost:4000/id/2022/01/27/duplikat-kartu-rfid-menggunakan-arduino.html"><![CDATA[<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino.jpg" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;p&gt;Karena menggunakan breadboard, maka tidak persis skematik, karena breadboard akan menjadi perantara hubungan antara Wiring ke Arduino dengan Pin pada modul RC522, jadi akhirnya terlihat seperti ini
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-4.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<p>Penerapan RFID udah luas banget. Contohnya member parkir, absen di kampus, absen di kantor, kunci pintu rumah, dan masih banyak lagi.<br />
+Setelah belajar lebih lanjut soal RFID, ternyata kartu RFID bisa diclone jika menggunakan kartu yang <a href="https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia" target="_blank">UID-rewritable</a>.</p>
 
-&lt;h3 id=&quot;cek-dumpinfo-kartu-aslilama&quot;&gt;Cek DumpInfo Kartu Asli/Lama&lt;/h3&gt;
-&lt;p&gt;Setelah koneksi siap, maka saya memastikan bahwa kartu asli yang mau diduplikat adalah model kartu yang cocok dengan kartu duplikat. Caranya adalah dengan mengakses submenu &lt;strong&gt;Examples&lt;/strong&gt; pada menu &lt;strong&gt;File&lt;/strong&gt; pada Arudino IDE, program yang perlu digunakan adalah &lt;strong&gt;DumpInfo&lt;/strong&gt; lalu upload sketch ke Arduino dengan tombol &lt;strong&gt;Upload&lt;/strong&gt; hingga muncul pesan&lt;br /&gt;
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-7.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<p>Tinggal di salah satu lingkungan yang sudah menerapkan sistem keluar masuk menggunakan kartu seperti ini, membuat saya termotivasi untuk belajar duplikat kartu RFID. Pasalnya, saya sering menghilangkan kartu seperti ini, dan jika kehilangan kartu member ini umumnya <strong>dikenakan denda</strong> oleh pihak layanan sistem ini.</p>
 
-&lt;p&gt;Menu &lt;strong&gt;Serial Monitor&lt;/strong&gt; akan menampilkan data kartu ketika kartu didekatkan dengan modul RC522, tapi yang perlu dicatat hanyalah &lt;strong&gt;UID&lt;/strong&gt;.&lt;br /&gt;
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-8.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<p>Denda ini umumnya mulai dari Rp 50.000. Padahal jelas harga kartu RFID yang <a href="https://www.electron.id/article/rfid-dengan-frekuensi-13-56mhz-nfc-iso14443.html#mifare-di-indonesia" target="_blank">UID-rewritable</a> tidak mencapai 8 ribu. Faktanya, saya membeli kartu duplikat ini dengan harga 7 ribu rupiah.</p>
 
-&lt;h3 id=&quot;proses-duplikat-ke-kartu-baru&quot;&gt;Proses Duplikat ke Kartu Baru&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-12.jpg&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;
-Setelah mencatat UID yang perlu dicopy, dalam kasus ini adalah &lt;strong&gt;EC F6 33 49&lt;/strong&gt;, maka tinggal mengakses example bernama &lt;strong&gt;ChangeUID&lt;/strong&gt;, lalu buat perubahan pada line yang mendefinisikan UID baru, diubah sesuai dengan UID yang diinginkan.&lt;br /&gt;
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-9.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;br /&gt;
-Menjadi&lt;br /&gt;
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-10.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;/p&gt;
+<p>Keputusan saya untuk menggunakan Arduino berdasarkan pertimbangan bahwa:</p>
+<ul>
+  <li>Untuk memiliki hands-on experience terhadap Arduino</li>
+  <li>Budget saya tidak mencapai/melebihi alat clone yang berkisar 120 ribu rupiah atau lebih</li>
+</ul>
 
-&lt;p&gt;Setelah upload dan melihat output Serial Monitor, maka ketika mendekatkan &lt;strong&gt;kartu baru&lt;/strong&gt; ke modul RC522, maka Arduino akan langsung menulis ulang UID kartu sesuai yang didefinisikan. Hal tersebut bisa dipastikan dengan output seperti dibawah:&lt;br /&gt;
-&lt;img src=&quot;/assets/images/duplikat-kartu-rfid-menggunakan-arduino-11.png&quot; alt=&quot;Duplikat kartu RFID menggunakan Arduino&quot; /&gt;&lt;br /&gt;
-Dari output tersebut, UID kartu yang sebelumnya &lt;strong&gt;7D 53 63 32&lt;/strong&gt; menjadi &lt;strong&gt;EC F6 33 49&lt;/strong&gt;. Sesuai dengan kartu lama!!&lt;/p&gt;
+<p>Kebanyakan HP yang mendukung NFC bisa digunakan untuk duplikat, tapi perlu kartu khusus yang mendukung aplikasi seperti <a href="https://play.google.com/store/apps/details?id=de.syss.MifareClassicTool" target="_blank">Mifare Classic Tool di Android</a>. Jadi kartu yang bisa ditulis dengan modul Arduino ini belum tentu bisa ditulis ulang menggunakan aplikasi tersebut.</p>
 
-&lt;p&gt;Maka dapat disimpulkan bahwa proses duplikat telah berhasil, kartu baru sudah dapat digunakan sebagai cadangan.&lt;/p&gt;
+<p>Pada post ini saya hanya membahas duplikat menggunakan Arduino. Untuk duplikat menggunakan HP NFC mungkin akan saya bahas di lain post.</p>
 
-&lt;h2 id=&quot;final-thoughts&quot;&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;Melakukan duplikat kartu RFID menggunakan Arduino memberikan pengalaman hands-on terhadap Arduino dan modul RFID nya, memperluas pengetahuan saya tentang teknologi RFID, jenis-jenis yang tersedia, serta membantu saya mengenali berbagai macam tipe RFID dari frekuensi, struktur memori, serta model yang berbeda.&lt;/p&gt;
+<h2 id="tools"><strong>Tools</strong></h2>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-2.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Berikut peralatan yang saya gunakan beserta harganya. Tentunya harga beda-beda tiap lapak, namun saya cukup puas dengan belanjaan dibawah:</p>
 
-&lt;p&gt;Selain itu saya jadi bisa menghemat uang dengan menyiapkan kartu duplikat, yang bisa mencegah saya harus membayar denda kehilangan kartu seperti ini yang nilai dendanya tidak fair.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"></summary></entry><entry><title type="html">DIY Engine Control Unit ROM Reflashing (di CBR250RR)</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="DIY Engine Control Unit ROM Reflashing (di CBR250RR)" /><published>2021-12-07T22:00:00+07:00</published><updated>2021-12-07T22:00:00+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html">&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-winols.jpg&quot; alt=&quot;Reflash CBR250RR&quot; /&gt;&lt;/p&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th style="text-align: right">Harga</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Arduino Uno R3 Clone</td>
+      <td style="text-align: right">Rp 65.000</td>
+      <td><a href="https://www.tokopedia.com/toko-tekno/arduino-uno-r3-clone" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Modul Arduino: RFID RC522</td>
+      <td style="text-align: right">Rp 3.250</td>
+      <td><a href="https://www.tokopedia.com/tekno-kreasi-elektronik/sensor-rfid-rc522-module-rfid-module-rfid-card" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Solder 40w</td>
+      <td style="text-align: right">8.800</td>
+      <td><a href="https://www.tokopedia.com/zencarparts/alat-solder-listrik-patri-listrik-timah-soldering-iron-40w-40watt-220v" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Timah untuk solder</td>
+      <td style="text-align: right">11.900</td>
+      <td><a href="https://www.tokopedia.com/meinaelektrik/welsolo-vvs-633a-timah-gulung-solder-timah-soldering-original-0-3mm" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Breadboard 830</td>
+      <td style="text-align: right">Rp 11.600</td>
+      <td><a href="https://www.tokopedia.com/mirorim/mb-102-breadboard-830-holes-lubang-solderless-for-prototyping-arduino" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Kabel Jumper Arduino Male to Male minimal 7 pcs</td>
+      <td style="text-align: right">Rp 5.800</td>
+      <td><a href="https://www.tokopedia.com/roboware/kabel-jumper-pelangi-arduino-20cm-male-to-male-20-pcs-breadboard" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td>Kartu Mifare Classic 1K 13.57MHz Rewritable UID</td>
+      <td style="text-align: right">Rp 7.000</td>
+      <td><a href="https://www.tokopedia.com/electron/13-56-mhz-rewritable-uid-card-writable-rewritable-clone-duplicate" target="_blank">Tokopedia</a></td>
+    </tr>
+    <tr>
+      <td><strong>Total</strong></td>
+      <td style="text-align: right"><strong>Rp 113.350</strong></td>
+      <td> </td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;ECU - komputer pada kendaraan injeksi yang mengolah berbagai input dan keadaan kendaraan, dan menentukan perilaku mesin, dan komponen elektronik kendaraan lainnya.&lt;/p&gt;
+<p>Solder dan timah digunakan untuk melakukan solder pin header modul RFID dengan board RFIDnya. Sebaiknya punya solder, tapi saya sendiri pertama kali mengoperasikan solder saat membuat project ini.<br />
+Breadboard dan kabel jumper digunakan untuk menghubungkan modul RFID dengan Arduino.<br />
+Kartu RFID harus tipe Mifare Classic 1K UID Rewritable, karena merupakan kartu yang paling umum digunakan. Ingat untuk tidak menggunakan kartu yang didapatkan dari paket modul RC522, karena kartu-kartu tersebut hanya UID read-only.</p>
 
-&lt;p&gt;Reflashing ECU merupakan proses mengubah parameter pada kendaraan yang sudah ditentukan pabrik, biasanya dilakukan demi mendongkrak performa. Bagaimana? Dengan mengubah sudut pengapian, sudut &amp;amp; durasi injektor, rev limiter, dan lainnya yang sudah ditentukan dari pabrik.&lt;/p&gt;
+<h2 id="overview">Overview</h2>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-3.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Kartu RFID itu ada banyak model dan kadang tidak kompatibel antara satu sama lain. Kebanyakan kartu yang digunakan untuk kartu absen, kartu parkir, kartu member, dll. adalah <strong>NXP Mifare Classic 1K</strong> dengan standar ISO 14443 Type A, yang bekerja di frekuensi tinggi (13.57 MHz).<br />
+Kartu ini menampung data 1024 byte, terdiri dari 16 sektor memiliki UID atau Unique Identifier pada <strong>4 byte</strong> pertama di sektor 0 dari block memori kartu ini. Kartu Mifare 1K yang mendukung UID-rewritable umumnya hanya bisa tulis ulang pada sektor 0.</p>
 
-&lt;p&gt;Reflash &amp;amp; remap biasanya dikenakan 700 ribu hingga 1 juta rupiah, mahalnya jasa ini serta tumbuhnya rasa ingin tahu saya dengan proses dan apa saja yang bisa dimodifikasi dari ECU standar ini membuat saya terjun ke topik ini dan melakukan pendalaman selama beberapa bulan.&lt;/p&gt;
+<p>Ketika melakukan duplikat kartu, yang biasanya perlu dicapai adalah menduplikat 4 byte pertama dari sektor 0 pada kartu RFID. Jadi yang akan saya bahas di post ini adalah memasang Arduino dengan modulnya, lalu menggunakan example library dari Arduino IDE untuk membaca UID kartu yang mau diduplikat, lalu menulis UID pada kartu duplikat.</p>
 
-&lt;p&gt;Karena kepuasan saya melakukan DIY remap, akan saya bahas di postingan ini, gambaran besar tentang reflashing/remapping hingga langkah-langkah persisnya khusus untuk model motor ini.&lt;/p&gt;
+<h2 id="execution"><strong>Execution</strong></h2>
+<h3 id="persiapan">Persiapan</h3>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-6.png" alt="Duplikat kartu RFID menggunakan Arduino" />
+Pada tahap persiapan, saya mendownload Arduino IDE yang bisa <a href="https://www.arduino.cc/en/software" target="_blank">didownload disini</a>, kemudian mendownload library MFRC522 oleh GithubCommunity yang bisa diinstall melalui menu <strong>Manage Libraries</strong> pada menu <strong>Sketch</strong>.</p>
 
-&lt;h2 id=&quot;peringatan&quot;&gt;&lt;strong&gt;Peringatan&lt;/strong&gt;&lt;/h2&gt;
-&lt;ul&gt;
-  &lt;li&gt;Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin langkahnya berbeda&lt;/li&gt;
-  &lt;li&gt;Saya tidak bertanggung jawab atas konsekuensi dari percobaan yang kalian lakukan. Postingan ini ditujukan untuk panduan&lt;/li&gt;
-&lt;/ul&gt;
+<p>Setelah itu saya solder pin header dengan modul RFID 522. Pin header include dengan modulnya. Caranya bisa lihat <a href="https://youtu.be/wv5Mp1mn_8M" target="_blank">video ini</a></p>
 
-&lt;h2 id=&quot;tools&quot;&gt;&lt;strong&gt;Tools&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-alat-remap.jpg&quot; alt=&quot;Remap CBR250RR sendiri: alat remap&quot; /&gt;
-Berikut hardware dan software yang perlu disiapkan.&lt;/p&gt;
+<h3 id="pemasangan-arduino-dengan-modul-rc522">Pemasangan Arduino dengan Modul RC522</h3>
+<p>Pada tahap pemasangan, Arduino Uno dipasangkan dengan modul RC522 sesuai dengan tabel wiring dibawah:</p>
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Nama&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Harga&lt;/th&gt;
-      &lt;th&gt;Link&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;write hardware/Alat Remap (K-Line Flash Tool)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp ~250.000&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;File Binary (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;) dan Definition (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt;) untuk CBR250RR&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;em&gt;Free&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases&quot; target=&quot;_blank&quot;&gt;Download Disini&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Write Software (HondaECU 3.02, 3.5x, atau HondaFlasher)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rp 2.000.000&lt;/td&gt;
-      &lt;td&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;TunerPro Free&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;&lt;em&gt;Free&lt;/em&gt;&lt;/td&gt;
-      &lt;td&gt;&lt;a href=&quot;https://www.tunerpro.net/downloadApp.htm&quot; target=&quot;_blank&quot;&gt;Download disini&lt;/a&gt;&lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Pin</th>
+      <th>Wiring ke Arduino Uno</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>SDA</td>
+      <td>Digital 10</td>
+    </tr>
+    <tr>
+      <td>SCK</td>
+      <td>Digital 13</td>
+    </tr>
+    <tr>
+      <td>MOSI</td>
+      <td>Digital 11</td>
+    </tr>
+    <tr>
+      <td>MISO</td>
+      <td>Digital 12</td>
+    </tr>
+    <tr>
+      <td>IRQ</td>
+      <td>-</td>
+    </tr>
+    <tr>
+      <td>GND</td>
+      <td>GND</td>
+    </tr>
+    <tr>
+      <td>RST</td>
+      <td>Digital 9</td>
+    </tr>
+    <tr>
+      <td>3.3V</td>
+      <td>3.3V</td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;h2 id=&quot;overview&quot;&gt;&lt;strong&gt;Overview&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;tunerpro-file-bin-dan-file-xdf&quot;&gt;TunerPro, File .bin, dan File .xdf&lt;/h3&gt;
-&lt;ul&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; adalah software untuk mengubah pengaturan ECU. &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; yang akan di edit, dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; yang mendefinisikan parameter yang ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;.&lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Beda motor tentu beda binary. Didalamnya ada pengaturan seperti:
-    &lt;ul&gt;
-      &lt;li&gt;Map bensin&lt;/li&gt;
-      &lt;li&gt;Map pengapian&lt;/li&gt;
-      &lt;li&gt;Rev Limiter&lt;/li&gt;
-      &lt;li&gt;Dan masih banyak lagi&lt;/li&gt;
-    &lt;/ul&gt;
-  &lt;/li&gt;
-  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; adalah file Definition yang menjelaskan letak alamat pengaturan yang ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;. &lt;strong&gt;File XDF beda-beda tiap motor&lt;/strong&gt;, karena beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; tentunya beda &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt;.&lt;/li&gt;
-&lt;/ul&gt;
+<p>Berikut skematik dari <a href="https://randomnerdtutorials.com/security-access-using-mfrc522-rfid-reader-with-arduino/" target="_blank">RandomNerdTutorials</a>:
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-5.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-binary_patching.jpg&quot; alt=&quot;Reflash CBR250RR&quot; /&gt;&lt;/p&gt;
-&lt;h3 id=&quot;tunerpro-definition-building&quot;&gt;TunerPro Definition Building&lt;/h3&gt;
-&lt;p&gt;Salah satu tahap yang &lt;em&gt;time-consuming&lt;/em&gt;  adalah membuat binary definition, pada kasus ini binary definition yang dibangun adalah XDF atau TunerPro Definition File. Sebagai definition builder, tugas kita adalah menentukan byte range pada ROM/binary ECU, menganalisa berdasarkan pengetahuan, pemahaman tentang pola map, untuk menyimpulkan:&lt;/p&gt;
-&lt;ul&gt;
-  &lt;li&gt;jenis tabel (fuel map, ignition map, etc.)&lt;/li&gt;
-  &lt;li&gt;dimensi tabel (10x20? 20x10?)&lt;/li&gt;
-  &lt;li&gt;axis dari tabel (x=throttle, y=rpm, z=fuel?)&lt;/li&gt;
-&lt;/ul&gt;
+<p>Karena menggunakan breadboard, maka tidak persis skematik, karena breadboard akan menjadi perantara hubungan antara Wiring ke Arduino dengan Pin pada modul RC522, jadi akhirnya terlihat seperti ini
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-4.jpg" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;p&gt;informasi ini kemudian dikemas menjadi XDF pakai TunerPro, sebagai interface untuk Tuner dengan mudahnya memodifikasi nilai-nilai pada ROM ECU, melakukan operasi pada tabel seperti &lt;em&gt;scale by percent&lt;/em&gt;, &lt;em&gt;smooth table&lt;/em&gt;, dan &lt;em&gt;interpolate&lt;/em&gt;.&lt;/p&gt;
+<h3 id="cek-dumpinfo-kartu-aslilama">Cek DumpInfo Kartu Asli/Lama</h3>
+<p>Setelah koneksi siap, maka saya memastikan bahwa kartu asli yang mau diduplikat adalah model kartu yang cocok dengan kartu duplikat. Caranya adalah dengan mengakses submenu <strong>Examples</strong> pada menu <strong>File</strong> pada Arudino IDE, program yang perlu digunakan adalah <strong>DumpInfo</strong> lalu upload sketch ke Arduino dengan tombol <strong>Upload</strong> hingga muncul pesan<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-7.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;h3 id=&quot;file-xdf-untuk-cbr250rr&quot;&gt;File XDF untuk CBR250RR&lt;/h3&gt;
-&lt;p&gt;Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
-Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa &lt;a href=&quot;https://kelvinvalencio.github.io/projects/cbr250rr-ecu-binary-definition/&quot; target=&quot;_blank&quot;&gt;di-download disini.&lt;/a&gt;&lt;/p&gt;
+<p>Menu <strong>Serial Monitor</strong> akan menampilkan data kartu ketika kartu didekatkan dengan modul RC522, tapi yang perlu dicatat hanyalah <strong>UID</strong>.<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-8.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;h3 id=&quot;sebenernya-binary-patching&quot;&gt;Sebenernya Binary Patching&lt;/h3&gt;
-&lt;p&gt;Jadi ketika kita melakukan reflash, kurang lebih yang kita lakukan adalah &lt;a href=&quot;https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/&quot; target=&quot;_blank&quot;&gt;binary patching atau patching&lt;/a&gt;.&lt;br /&gt;
-Simpelnya, kita membaca nilai-nilai yang ada di file mentah &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; tersebut, lalu kita ubah nilainya, lalu kita kirim kembali ke ECU!&lt;/p&gt;
+<h3 id="proses-duplikat-ke-kartu-baru">Proses Duplikat ke Kartu Baru</h3>
+<p><img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-12.jpg" alt="Duplikat kartu RFID menggunakan Arduino" />
+Setelah mencatat UID yang perlu dicopy, dalam kasus ini adalah <strong>EC F6 33 49</strong>, maka tinggal mengakses example bernama <strong>ChangeUID</strong>, lalu buat perubahan pada line yang mendefinisikan UID baru, diubah sesuai dengan UID yang diinginkan.<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-9.png" alt="Duplikat kartu RFID menggunakan Arduino" /><br />
+Menjadi<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-10.png" alt="Duplikat kartu RFID menggunakan Arduino" /></p>
 
-&lt;h3 id=&quot;checksum&quot;&gt;Checksum&lt;/h3&gt;
-&lt;p&gt;Checksum pada ECU umumnya adalah rentang alamat khusus yang berisi nilai checksum, untuk menentukan integritas dari binary.&lt;br /&gt;
-Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan nilai-nilai yang ada di binary. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya &lt;strong&gt;harus dihitung ulang&lt;/strong&gt;. Jika tidak, saat ECU melakukan proses &lt;strong&gt;booting&lt;/strong&gt; dan menemukan bahwa checksum tidak sesuai dengan angka yang ada di ECU, motor mungkin tidak mau nyala karena dianggap ada perubahan pada memori yang tidak disengaja.&lt;/p&gt;
+<p>Setelah upload dan melihat output Serial Monitor, maka ketika mendekatkan <strong>kartu baru</strong> ke modul RC522, maka Arduino akan langsung menulis ulang UID kartu sesuai yang didefinisikan. Hal tersebut bisa dipastikan dengan output seperti dibawah:<br />
+<img src="/assets/images/duplikat-kartu-rfid-menggunakan-arduino-11.png" alt="Duplikat kartu RFID menggunakan Arduino" /><br />
+Dari output tersebut, UID kartu yang sebelumnya <strong>7D 53 63 32</strong> menjadi <strong>EC F6 33 49</strong>. Sesuai dengan kartu lama!!</p>
 
-&lt;p&gt;Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun write software seperti &lt;a href=&quot;https://mcuinnovations.com/software/hondaecu/&quot; target=&quot;_blank&quot;&gt;HondaECU&lt;/a&gt; sudah dapat melakukan &lt;strong&gt;checksum correction&lt;/strong&gt; secara sendirinya. Jadi saat binary yang berubah hendak dikirim ke ECU, write software tertentu akan mengubah lagi nilai checksum sesuai dengan kalkulasi yang seharusnya.&lt;/p&gt;
+<p>Maka dapat disimpulkan bahwa proses duplikat telah berhasil, kartu baru sudah dapat digunakan sebagai cadangan.</p>
 
-&lt;h3 id=&quot;flashing-ke-ecu&quot;&gt;Flashing ke ECU&lt;/h3&gt;
-&lt;p&gt;&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-write-software.png&quot; alt=&quot;Remap CBR250RR sendiri write software/flasher software&quot; /&gt;&lt;/p&gt;
+<h2 id="final-thoughts"><strong>Final Thoughts</strong></h2>
+<p>Melakukan duplikat kartu RFID menggunakan Arduino memberikan pengalaman hands-on terhadap Arduino dan modul RFID nya, memperluas pengetahuan saya tentang teknologi RFID, jenis-jenis yang tersedia, serta membantu saya mengenali berbagai macam tipe RFID dari frekuensi, struktur memori, serta model yang berbeda.</p>
 
-&lt;p&gt;Nah, kalo sampe sini masih nyambung, kita lanjut ke tahap &lt;strong&gt;flashing&lt;/strong&gt; dimana file .bin baru kita kirim ke ECU. Flashing ini memerlukan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; dan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;. Jadi kurang lebih kita menyambungkan &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt; ke komputer, lalu kita pakai &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write software&lt;/code&gt; untuk “berbicara” dengan ECU lewat &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;write hardware&lt;/code&gt;.&lt;/p&gt;
+<p>Selain itu saya jadi bisa menghemat uang dengan menyiapkan kartu duplikat, yang bisa mencegah saya harus membayar denda kehilangan kartu seperti ini yang nilai dendanya tidak fair.</p>]]></content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"><![CDATA[Cara duplikat kartu RFID kartu absen/member menggunakan Arduino Uno R3]]></summary></entry><entry><title type="html">DIY Engine Control Unit ROM Reflashing (di CBR250RR)</title><link href="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html" rel="alternate" type="text/html" title="DIY Engine Control Unit ROM Reflashing (di CBR250RR)" /><published>2021-12-07T22:00:00+07:00</published><updated>2021-12-07T22:00:00+07:00</updated><id>http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri</id><content type="html" xml:base="http://localhost:4000/id/2021/12/07/remap-cbr250rr-sendiri.html"><![CDATA[<p><img src="/assets/images/remap-cbr250rr-sendiri-winols.jpg" alt="Reflash CBR250RR" /></p>
 
-&lt;p&gt;Nah tadi gambaran besarnya supaya punya pegangan dengan konsepnya. Sekarang kita masuk ke eksekusinya (ini yang kalian tunggu-tunggu)&lt;/p&gt;
+<p>ECU - komputer pada kendaraan injeksi yang mengolah berbagai input dan keadaan kendaraan, dan menentukan perilaku mesin, dan komponen elektronik kendaraan lainnya.</p>
 
-&lt;h2 id=&quot;execution&quot;&gt;&lt;strong&gt;Execution&lt;/strong&gt;&lt;/h2&gt;
-&lt;h3 id=&quot;persiapan&quot;&gt;Persiapan&lt;/h3&gt;
-&lt;ol&gt;
-  &lt;li&gt;Download driver software yang sesuai&lt;/li&gt;
-  &lt;li&gt;Download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;BIN&lt;/code&gt; untuk &lt;a href=&quot;https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/raw/main/CBR250RR-38770-K64-N04_BIN.bin&quot; target=&quot;_blank&quot;&gt;CBR250RR 38770-K64-N04 disini&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Download &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;XDF&lt;/code&gt; untuk &lt;a href=&quot;https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases&quot; target=&quot;_blank&quot;&gt;CBR250RR 38770-K64-N04 disini&lt;/a&gt;. Pilih versi release terbaru, lalu klik bagian &lt;strong&gt;assets&lt;/strong&gt;, lalu klik file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.xdf&lt;/code&gt;nya. Di contoh ini kita akan pake versi v0.95 yang bisa langsung &lt;a href=&quot;https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases/download/38770-K64-N04-v0.95/CBR250RR_38770-K64-N04_PUBLIC_v095.xdf&quot; target=&quot;_blank&quot;&gt;di-download disini&lt;/a&gt;&lt;/li&gt;
-  &lt;li&gt;Buka TunerPro, open bin dan XDF, lakukan perubahan yang diinginkan pada parameter yang tersedia.&lt;/li&gt;
-&lt;/ol&gt;
+<p>Reflashing ECU merupakan proses mengubah parameter pada kendaraan yang sudah ditentukan pabrik, biasanya dilakukan demi mendongkrak performa. Bagaimana? Dengan mengubah sudut pengapian, sudut &amp; durasi injektor, rev limiter, dan lainnya yang sudah ditentukan dari pabrik.</p>
 
-&lt;h3 id=&quot;mengubah-binaryrom&quot;&gt;Mengubah binary/ROM&lt;/h3&gt;
-&lt;p&gt;Jika berhasil maka akan terlihat tampilan seperti dibawah
-&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-tunerpro.png&quot; alt=&quot;Remap CBR250RR sendiri software TunerPro&quot; /&gt;&lt;br /&gt;
-Di contoh ini, kita akan mencoba menaikkan RPM Limiter CBR250RR kita dari 14000 menjadi &lt;em&gt;14500&lt;/em&gt;. Dipersilahkan untuk skip step ubah limiter dan membuat ubahan yang kalian hendaki sendiri&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Pada Parameter Tree &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;TunerPro&lt;/code&gt; klik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Limiters&lt;/code&gt;, maka akan terlihat tabel &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RPM Limiter 1&lt;/code&gt; hingga &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;RPM Limiter 5&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Buka tabel-tabel tersebut, dan ubah nilainya menjadi &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;14500&lt;/code&gt; untuk semua kolom.
-&lt;img src=&quot;/assets/images/remap-cbr250rr-sendiri-limiter.png&quot; alt=&quot;Remap CBR250RR sendiri limiter&quot; /&gt;&lt;/li&gt;
-  &lt;li&gt;Save tiap ubahan di window tabel&lt;/li&gt;
-  &lt;li&gt;Save ubahan ke binary dengan klik &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;File&lt;/code&gt; &amp;gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Save Bin&lt;/code&gt; atau &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Save Bin As&lt;/code&gt;, terserah kalian, tapi ingat file yang diubah&lt;/li&gt;
-&lt;/ol&gt;
+<p>Reflash &amp; remap biasanya dikenakan 700 ribu hingga 1 juta rupiah, mahalnya jasa ini serta tumbuhnya rasa ingin tahu saya dengan proses dan apa saja yang bisa dimodifikasi dari ECU standar ini membuat saya terjun ke topik ini dan melakukan pendalaman selama beberapa bulan.</p>
 
-&lt;h3 id=&quot;flashing-ke-ecu-1&quot;&gt;Flashing ke ECU&lt;/h3&gt;
-&lt;p&gt;&lt;img align=&quot;center&quot; height=&quot;343&quot; width=&quot;493&quot; src=&quot;/assets/images/remap-cbr250rr-sendiri-physical-setup.jpg&quot; alt=&quot;Belajar remap CBR250RR sendiri&quot; /&gt;&lt;br /&gt;
-Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggunakan software HondaECU untuk writing ke ECU&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Sambungkan alat remap ke PC/laptop&lt;/li&gt;
-  &lt;li&gt;Hubungkan kabel DLC ke laptop melalui reflash hardware&lt;/li&gt;
-  &lt;li&gt;Browse file bin yang sudah dimodifikasi&lt;/li&gt;
-  &lt;li&gt;Atur checksum address, spesifik model kendaraan saya ada di &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;0x7FFF8&lt;/code&gt;&lt;/li&gt;
-  &lt;li&gt;Start flashing dan tunggu sampai selesai&lt;/li&gt;
-&lt;/ol&gt;
+<p>Karena kepuasan saya melakukan DIY remap, akan saya bahas di postingan ini, gambaran besar tentang reflashing/remapping hingga langkah-langkah persisnya khusus untuk model motor ini.</p>
 
-&lt;h2 id=&quot;final-thoughts&quot;&gt;&lt;strong&gt;Final Thoughts&lt;/strong&gt;&lt;/h2&gt;
-&lt;p&gt;DIY Reflashing sudah umum di negeri luar, komunitas dan material belajar yang tersedia cukup banyak, sehingga mendukung individu yang penasaran.&lt;br /&gt;
-Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.&lt;/p&gt;
+<h2 id="peringatan"><strong>Peringatan</strong></h2>
+<ul>
+  <li>Pastikan model motor kalian CBR250RR dengan kode ECU 38770-K64-N04. Beda motor/model mungkin langkahnya berbeda</li>
+  <li>Saya tidak bertanggung jawab atas konsekuensi dari percobaan yang kalian lakukan. Postingan ini ditujukan untuk panduan</li>
+</ul>
 
-&lt;p&gt;Udah bisa reflash, sekarang apa? Tahap selanjutnya saya saranin pelajari konsep tuning seperti ignition tuning, fuel tuning. Saya rekomen video-video dari channel Youtube &lt;a href=&quot;https://www.youtube.com/watch?v=5KdbEXYD224&quot; target=&quot;_blank&quot;&gt;HP Academy&lt;/a&gt;, yang memberikan pengenalan konsep yang baik tentang tuning mesin injeksi.&lt;br /&gt;
-Dari situ kalo kalian udah nyaman dengan teorinya, baru coba mengubah Fuel dan Ignition Map.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"></summary></entry><entry><title type="html">HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know</title><link href="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html" rel="alternate" type="text/html" title="HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know" /><published>2021-12-06T16:13:00+07:00</published><updated>2021-12-06T16:13:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html">&lt;center&gt;&lt;img src=&quot;https://i.imgur.com/vhpyGlz.png&quot; alt=&quot;CS50 photo&quot; /&gt;&lt;/center&gt;
-&lt;p&gt;If you’re interested in taking the course, &lt;a href=&quot;https://www.edx.org/course/introduction-computer-science-harvardx-cs50x&quot;&gt;go to this EDx page&lt;/a&gt; or &lt;a href=&quot;https://cs50.harvard.edu/x/&quot;&gt;go to this official page for CS50x&lt;/a&gt;&lt;/p&gt;
+<h2 id="tools"><strong>Tools</strong></h2>
+<p><img src="/assets/images/remap-cbr250rr-sendiri-alat-remap.jpg" alt="Remap CBR250RR sendiri: alat remap" />
+Berikut hardware dan software yang perlu disiapkan.</p>
 
-&lt;p&gt;CS50x is one of the largest Computer Science course provided by HarvardX, it’s available online and is free.&lt;/p&gt;
+<table>
+  <thead>
+    <tr>
+      <th>Nama</th>
+      <th style="text-align: right">Harga</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>write hardware/Alat Remap (K-Line Flash Tool)</td>
+      <td style="text-align: right">Rp ~250.000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>File Binary (<code class="language-plaintext highlighter-rouge">BIN</code>) dan Definition (<code class="language-plaintext highlighter-rouge">XDF</code>) untuk CBR250RR</td>
+      <td style="text-align: right"><em>Free</em></td>
+      <td><a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">Download Disini</a></td>
+    </tr>
+    <tr>
+      <td>Write Software (HondaECU 3.02, 3.5x, atau HondaFlasher)</td>
+      <td style="text-align: right">Rp 2.000.000</td>
+      <td> </td>
+    </tr>
+    <tr>
+      <td>TunerPro Free</td>
+      <td style="text-align: right"><em>Free</em></td>
+      <td><a href="https://www.tunerpro.net/downloadApp.htm" target="_blank">Download disini</a></td>
+    </tr>
+  </tbody>
+</table>
 
-&lt;p&gt;A few weeks ago, I decided to finally complete the CS50x course. So in this post, I’m going to explain to you what to expect in this course, my impression, and how much work do you need to complete this course. Let’s start from me.
-I wrote down how much time I spent working on the Problem Sets of CS50x, and I spent 47 hours total to complete 10 problem sets, 10 labs, and 1 final project in 8 days.&lt;/p&gt;
+<h2 id="overview"><strong>Overview</strong></h2>
+<h3 id="tunerpro-file-bin-dan-file-xdf">TunerPro, File .bin, dan File .xdf</h3>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">TunerPro</code> adalah software untuk mengubah pengaturan ECU. <code class="language-plaintext highlighter-rouge">TunerPro</code> memerlukan <code class="language-plaintext highlighter-rouge">BIN</code> yang akan di edit, dan <code class="language-plaintext highlighter-rouge">XDF</code> yang mendefinisikan parameter yang ada di <code class="language-plaintext highlighter-rouge">BIN</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">BIN</code> adalah file binary/raw dari ECU, bisa dibilang merupakan ROM dari ECU. Beda motor tentu beda binary. Didalamnya ada pengaturan seperti:
+    <ul>
+      <li>Map bensin</li>
+      <li>Map pengapian</li>
+      <li>Rev Limiter</li>
+      <li>Dan masih banyak lagi</li>
+    </ul>
+  </li>
+  <li><code class="language-plaintext highlighter-rouge">XDF</code> adalah file Definition yang menjelaskan letak alamat pengaturan yang ada di <code class="language-plaintext highlighter-rouge">BIN</code>. <strong>File XDF beda-beda tiap motor</strong>, karena beda <code class="language-plaintext highlighter-rouge">BIN</code> tentunya beda <code class="language-plaintext highlighter-rouge">XDF</code> karena beda letak pengalamatan tiap-tiap pengaturan yang tersimpan di <code class="language-plaintext highlighter-rouge">BIN</code>.</li>
+</ul>
 
-&lt;h2 id=&quot;course-structure--more-about-it&quot;&gt;Course Structure &amp;amp; More About It&lt;/h2&gt;
-&lt;p&gt;This is a course with 10 Lectures, 10 Labs, 10 Problem Sets, and 1 Final Project. (per 2021)&lt;/p&gt;
-&lt;ol&gt;
-  &lt;li&gt;Lectures&lt;br /&gt;
-One lecture per week, about 1 to 2 hours long.&lt;/li&gt;
-  &lt;li&gt;Labs&lt;br /&gt;
-Labs are made to prepare yourself for Problem Sets, usually not as strict as Problem Sets, because you may be allowed to collab with one or two classmates.&lt;/li&gt;
-  &lt;li&gt;Problem Sets&lt;br /&gt;
-This is the real assignment and is meant to be solved by yourself. This part is known for moderately time consuming and difficult.&lt;/li&gt;
-  &lt;li&gt;Final Project&lt;br /&gt;
-At the end, you’ll have to submit a final project in form of app. The course gives you freedom in choosing technologies and platforms that you like. You probably will have to create a presentation for it, upload it to YouTube public/unlisted. There is a gallery for the final projects where students who accept, will have their final project displayed.&lt;/li&gt;
-&lt;/ol&gt;
+<p><img src="/assets/images/remap-cbr250rr-binary_patching.jpg" alt="Reflash CBR250RR" /></p>
+<h3 id="tunerpro-definition-building">TunerPro Definition Building</h3>
+<p>Salah satu tahap yang <em>time-consuming</em>  adalah membuat binary definition, pada kasus ini binary definition yang dibangun adalah XDF atau TunerPro Definition File. Sebagai definition builder, tugas kita adalah menentukan byte range pada ROM/binary ECU, menganalisa berdasarkan pengetahuan, pemahaman tentang pola map, untuk menyimpulkan:</p>
+<ul>
+  <li>jenis tabel (fuel map, ignition map, etc.)</li>
+  <li>dimensi tabel (10x20? 20x10?)</li>
+  <li>axis dari tabel (x=throttle, y=rpm, z=fuel?)</li>
+</ul>
 
-&lt;h2 id=&quot;where-im-coming-from--what-i-think&quot;&gt;Where I’m Coming From &amp;amp; What I Think&lt;/h2&gt;
-&lt;p&gt;According to &lt;a href=&quot;https://cs50.harvard.edu/college/2021/fall/faqs/&quot;&gt;CS50’s FAQ&lt;/a&gt;, two-thirds (2/3) of CS50 students have never taken a CS course before. With that said, I’m currently an Information Systems student in my final year, and you can safely assume that I’m familiar with some parts of the course like algorithm, and languages like C and Python.&lt;/p&gt;
+<p>informasi ini kemudian dikemas menjadi XDF pakai TunerPro, sebagai interface untuk Tuner dengan mudahnya memodifikasi nilai-nilai pada ROM ECU, melakukan operasi pada tabel seperti <em>scale by percent</em>, <em>smooth table</em>, dan <em>interpolate</em>.</p>
 
-&lt;p&gt;After reflecting back on it, I’m somewhere in between calling it difficult. It’s definitely not easy for me, it took me a lot of trial and error to solve a Problem Set. A word that fits this course is “challenging”.&lt;br /&gt;
-David J. Malan, the lecturer of this course, did a great job teaching this course, the crew also did a great job visualizing lots of concepts to know. The lectures is done very well in explaining things and make them very exciting.&lt;/p&gt;
+<h3 id="file-xdf-untuk-cbr250rr">File XDF untuk CBR250RR</h3>
+<p>Saya sempat mencari XDF untuk CBR250RR, namun rentang harganya luar biasa. Ada yang menjual mulai dari 1.5 juta dan keatas.
+Khusus untuk CBR250RR 38770-K64-N04, saya sudah membuat definisi lengkap beserta file XDF yang bisa <a href="https://kelvinvalencio.github.io/projects/cbr250rr-ecu-binary-definition/" target="_blank">di-download disini.</a></p>
 
-&lt;h2 id=&quot;what-you-get&quot;&gt;What You Get&lt;/h2&gt;
-&lt;center&gt;&lt;img src=&quot;https://i.imgur.com/ch01NLA.png&quot; width=&quot;370&quot; height=&quot;269&quot; alt=&quot;CS50 certificate&quot; /&gt;&lt;/center&gt;
-&lt;p&gt;After taking this course, you’re going to be much more familiar with hands-on technologies such as C and Python Programming Language, solving problems using algorithms, and you’ll have some insight into how computers use memory to store data, and some insight into Web Development.&lt;/p&gt;
+<h3 id="sebenernya-binary-patching">Sebenernya Binary Patching</h3>
+<p>Jadi ketika kita melakukan reflash, kurang lebih yang kita lakukan adalah <a href="https://student-activity.binus.ac.id/csc/2021/08/binary-patching-menggunakan-ida-pro-part-1/" target="_blank">binary patching atau patching</a>.<br />
+Simpelnya, kita membaca nilai-nilai yang ada di file mentah <code class="language-plaintext highlighter-rouge">BIN</code> tersebut, lalu kita ubah nilainya, lalu kita kirim kembali ke ECU!</p>
 
-&lt;p&gt;Also if you complete the course and score at least 70% for each assignments, you’ll get an &lt;a href=&quot;https://cs50.harvard.edu/x/2021/certificate/&quot;&gt;E-Certificate&lt;/a&gt;. My favorite part is that it used to hosted under &lt;a href=&quot;harvard.edu&quot;&gt;harvard.edu’s subdomain&lt;/a&gt;. But I recently moved under &lt;a href=&quot;cs50.io&quot;&gt;cs50.io&lt;/a&gt; instead. But you can still hyperlinks to harvard’s and it will redirect to cs50’s. Still, I do like the fact that it’s associated with Harvard. It brings more leverage aside from the course itself being one of the best free CS course you could take online.&lt;/p&gt;
+<h3 id="checksum">Checksum</h3>
+<p>Checksum pada ECU umumnya adalah rentang alamat khusus yang berisi nilai checksum, untuk menentukan integritas dari binary.<br />
+Simpelnya, checksum ini dihitung sedemikian rupa berdasarkan nilai-nilai yang ada di binary. Ketika kita mengubah nilai yang ada di binary ECU, maka checksum sebenarnya <strong>harus dihitung ulang</strong>. Jika tidak, saat ECU melakukan proses <strong>booting</strong> dan menemukan bahwa checksum tidak sesuai dengan angka yang ada di ECU, motor mungkin tidak mau nyala karena dianggap ada perubahan pada memori yang tidak disengaja.</p>
 
-&lt;h2 id=&quot;final-thoughts&quot;&gt;Final Thoughts&lt;/h2&gt;
-&lt;p&gt;CS50 is very worth taking, the lectures are one of the best, and the assignments are challenging.
-About difficulty, I’m going to agree with what most people say: CS50 is rather time consuming than difficult. You’re expected to solve way more difficult problems in the Problem Sets than what you get from the Lecture.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="en" /><summary type="html">If you’re interested in taking the course, go to this EDx page or go to this official page for CS50x</summary></entry><entry><title type="html">My Very First Post</title><link href="http://localhost:4000/en/2021/12/06/my-very-first-post.html" rel="alternate" type="text/html" title="My Very First Post" /><published>2021-12-06T00:35:00+07:00</published><updated>2021-12-06T00:35:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/my-very-first-post</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/my-very-first-post.html">&lt;p&gt;Hello, world! This is my very first post. It took a while to set up this Github Page along with the Jekyll tool, granted, I’m not a very fast learner. While I try getting used to this markdown syntax, I shall tell the world a little about myself in this very first post.&lt;/p&gt;
+<p>Algoritma checksum ada beragam, beda ECU kadang beda algoritma. Namun write software seperti <a href="https://mcuinnovations.com/software/hondaecu/" target="_blank">HondaECU</a> sudah dapat melakukan <strong>checksum correction</strong> secara sendirinya. Jadi saat binary yang berubah hendak dikirim ke ECU, write software tertentu akan mengubah lagi nilai checksum sesuai dengan kalkulasi yang seharusnya.</p>
 
-&lt;h1 id=&quot;me--it&quot;&gt;Me &amp;amp; IT&lt;/h1&gt;
-&lt;p&gt;&lt;img src=&quot;https://i.imgur.com/NsDWPsR.png&quot; width=&quot;100&quot; height=&quot;200&quot; /&gt;&lt;br /&gt;
-My name is Kelvin, I’m a college student majoring Information Systems. I’m interested in System Administration, Computer &amp;amp; Cyber Security, and more. I recently found board/microcontroller programming interesting, so I might take a peek into that as well.
-My fascination in IT started when I got my first Android phone where I started to learn about modding and re-flashing ROMs. From there I moved on into more things that are IT related.&lt;/p&gt;
+<h3 id="flashing-ke-ecu">Flashing ke ECU</h3>
+<p><img src="/assets/images/remap-cbr250rr-sendiri-write-software.png" alt="Remap CBR250RR sendiri write software/flasher software" /></p>
 
-&lt;h1 id=&quot;me--other-than-it&quot;&gt;Me &amp;amp; other than IT&lt;/h1&gt;
-&lt;p&gt;When I’m not behind a computer monitor, I enjoy riding motorcycle, playing piano, and violin.&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="en" /><summary type="html">Hello, world! This is my very first post. It took a while to set up this Github Page along with the Jekyll tool, granted, I’m not a very fast learner. While I try getting used to this markdown syntax, I shall tell the world a little about myself in this very first post.</summary></entry><entry><title type="html">Selamat Datang!</title><link href="http://localhost:4000/id/2021/12/05/selamat-datang.html" rel="alternate" type="text/html" title="Selamat Datang!" /><published>2021-12-05T17:33:32+07:00</published><updated>2021-12-05T17:33:32+07:00</updated><id>http://localhost:4000/id/2021/12/05/selamat-datang</id><content type="html" xml:base="http://localhost:4000/id/2021/12/05/selamat-datang.html">&lt;p&gt;Hai, ini blog bahasa Indonesia!&lt;/p&gt;</content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html">Hai, ini blog bahasa Indonesia!</summary></entry></feed>
+<p>Nah, kalo sampe sini masih nyambung, kita lanjut ke tahap <strong>flashing</strong> dimana file .bin baru kita kirim ke ECU. Flashing ini memerlukan <code class="language-plaintext highlighter-rouge">write software</code> dan <code class="language-plaintext highlighter-rouge">write hardware</code>. Jadi kurang lebih kita menyambungkan <code class="language-plaintext highlighter-rouge">write hardware</code> ke komputer, lalu kita pakai <code class="language-plaintext highlighter-rouge">write software</code> untuk “berbicara” dengan ECU lewat <code class="language-plaintext highlighter-rouge">write hardware</code>.</p>
+
+<p>Nah tadi gambaran besarnya supaya punya pegangan dengan konsepnya. Sekarang kita masuk ke eksekusinya (ini yang kalian tunggu-tunggu)</p>
+
+<h2 id="execution"><strong>Execution</strong></h2>
+<h3 id="persiapan">Persiapan</h3>
+<ol>
+  <li>Download driver software yang sesuai</li>
+  <li>Download <code class="language-plaintext highlighter-rouge">BIN</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/raw/main/CBR250RR-38770-K64-N04_BIN.bin" target="_blank">CBR250RR 38770-K64-N04 disini</a></li>
+  <li>Download <code class="language-plaintext highlighter-rouge">XDF</code> untuk <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases" target="_blank">CBR250RR 38770-K64-N04 disini</a>. Pilih versi release terbaru, lalu klik bagian <strong>assets</strong>, lalu klik file <code class="language-plaintext highlighter-rouge">.xdf</code>nya. Di contoh ini kita akan pake versi v0.95 yang bisa langsung <a href="https://github.com/kelvinvalencio/cbr250rr-ecu-binary-definition/releases/download/38770-K64-N04-v0.95/CBR250RR_38770-K64-N04_PUBLIC_v095.xdf" target="_blank">di-download disini</a></li>
+  <li>Buka TunerPro, open bin dan XDF, lakukan perubahan yang diinginkan pada parameter yang tersedia.</li>
+</ol>
+
+<h3 id="mengubah-binaryrom">Mengubah binary/ROM</h3>
+<p>Jika berhasil maka akan terlihat tampilan seperti dibawah
+<img src="/assets/images/remap-cbr250rr-sendiri-tunerpro.png" alt="Remap CBR250RR sendiri software TunerPro" /><br />
+Di contoh ini, kita akan mencoba menaikkan RPM Limiter CBR250RR kita dari 14000 menjadi <em>14500</em>. Dipersilahkan untuk skip step ubah limiter dan membuat ubahan yang kalian hendaki sendiri</p>
+<ol>
+  <li>Pada Parameter Tree <code class="language-plaintext highlighter-rouge">TunerPro</code> klik <code class="language-plaintext highlighter-rouge">Limiters</code>, maka akan terlihat tabel <code class="language-plaintext highlighter-rouge">RPM Limiter 1</code> hingga <code class="language-plaintext highlighter-rouge">RPM Limiter 5</code></li>
+  <li>Buka tabel-tabel tersebut, dan ubah nilainya menjadi <code class="language-plaintext highlighter-rouge">14500</code> untuk semua kolom.
+<img src="/assets/images/remap-cbr250rr-sendiri-limiter.png" alt="Remap CBR250RR sendiri limiter" /></li>
+  <li>Save tiap ubahan di window tabel</li>
+  <li>Save ubahan ke binary dengan klik <code class="language-plaintext highlighter-rouge">File</code> &gt; <code class="language-plaintext highlighter-rouge">Save Bin</code> atau <code class="language-plaintext highlighter-rouge">Save Bin As</code>, terserah kalian, tapi ingat file yang diubah</li>
+</ol>
+
+<h3 id="flashing-ke-ecu-1">Flashing ke ECU</h3>
+<p><img align="center" height="343" width="493" src="/assets/images/remap-cbr250rr-sendiri-physical-setup.jpg" alt="Belajar remap CBR250RR sendiri" /><br />
+Tahap ini waktunya write bin yang udah kalian ubah ke ECU. Saya biasanya menggunakan software HondaECU untuk writing ke ECU</p>
+<ol>
+  <li>Sambungkan alat remap ke PC/laptop</li>
+  <li>Hubungkan kabel DLC ke laptop melalui reflash hardware</li>
+  <li>Browse file bin yang sudah dimodifikasi</li>
+  <li>Atur checksum address, spesifik model kendaraan saya ada di <code class="language-plaintext highlighter-rouge">0x7FFF8</code></li>
+  <li>Start flashing dan tunggu sampai selesai</li>
+</ol>
+
+<h2 id="final-thoughts"><strong>Final Thoughts</strong></h2>
+<p>DIY Reflashing sudah umum di negeri luar, komunitas dan material belajar yang tersedia cukup banyak, sehingga mendukung individu yang penasaran.<br />
+Harapan saya di Indonesia makin banyak orang dengan rasa ingin tahu lebih tinggi ke bagaimana sesuatu bekerja, termasuk otak kecil pengontrol sistem injeksi ini.</p>
+
+<p>Udah bisa reflash, sekarang apa? Tahap selanjutnya saya saranin pelajari konsep tuning seperti ignition tuning, fuel tuning. Saya rekomen video-video dari channel Youtube <a href="https://www.youtube.com/watch?v=5KdbEXYD224" target="_blank">HP Academy</a>, yang memberikan pengenalan konsep yang baik tentang tuning mesin injeksi.<br />
+Dari situ kalo kalian udah nyaman dengan teorinya, baru coba mengubah Fuel dan Ignition Map.</p>]]></content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"><![CDATA[Reflashing ECU CBR250RR MC51 K64]]></summary></entry><entry><title type="html">HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know</title><link href="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html" rel="alternate" type="text/html" title="HarvardX CS50/CS50x Introduction to Computer Science course - What You Need To Know" /><published>2021-12-06T16:13:00+07:00</published><updated>2021-12-06T16:13:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/harvardx-cs50-what-you-need-to-know.html"><![CDATA[<center><img src="https://i.imgur.com/vhpyGlz.png" alt="CS50 photo" /></center>
+<p>If you’re interested in taking the course, <a href="https://www.edx.org/course/introduction-computer-science-harvardx-cs50x">go to this EDx page</a> or <a href="https://cs50.harvard.edu/x/">go to this official page for CS50x</a></p>
+
+<p>CS50x is one of the largest Computer Science course provided by HarvardX, it’s available online and is free.</p>
+
+<p>A few weeks ago, I decided to finally complete the CS50x course. So in this post, I’m going to explain to you what to expect in this course, my impression, and how much work do you need to complete this course. Let’s start from me.
+I wrote down how much time I spent working on the Problem Sets of CS50x, and I spent 47 hours total to complete 10 problem sets, 10 labs, and 1 final project in 8 days.</p>
+
+<h2 id="course-structure--more-about-it">Course Structure &amp; More About It</h2>
+<p>This is a course with 10 Lectures, 10 Labs, 10 Problem Sets, and 1 Final Project. (per 2021)</p>
+<ol>
+  <li>Lectures<br />
+One lecture per week, about 1 to 2 hours long.</li>
+  <li>Labs<br />
+Labs are made to prepare yourself for Problem Sets, usually not as strict as Problem Sets, because you may be allowed to collab with one or two classmates.</li>
+  <li>Problem Sets<br />
+This is the real assignment and is meant to be solved by yourself. This part is known for moderately time consuming and difficult.</li>
+  <li>Final Project<br />
+At the end, you’ll have to submit a final project in form of app. The course gives you freedom in choosing technologies and platforms that you like. You probably will have to create a presentation for it, upload it to YouTube public/unlisted. There is a gallery for the final projects where students who accept, will have their final project displayed.</li>
+</ol>
+
+<h2 id="where-im-coming-from--what-i-think">Where I’m Coming From &amp; What I Think</h2>
+<p>According to <a href="https://cs50.harvard.edu/college/2021/fall/faqs/">CS50’s FAQ</a>, two-thirds (2/3) of CS50 students have never taken a CS course before. With that said, I’m currently an Information Systems student in my final year, and you can safely assume that I’m familiar with some parts of the course like algorithm, and languages like C and Python.</p>
+
+<p>After reflecting back on it, I’m somewhere in between calling it difficult. It’s definitely not easy for me, it took me a lot of trial and error to solve a Problem Set. A word that fits this course is “challenging”.<br />
+David J. Malan, the lecturer of this course, did a great job teaching this course, the crew also did a great job visualizing lots of concepts to know. The lectures is done very well in explaining things and make them very exciting.</p>
+
+<h2 id="what-you-get">What You Get</h2>
+<center><img src="https://i.imgur.com/ch01NLA.png" width="370" height="269" alt="CS50 certificate" /></center>
+<p>After taking this course, you’re going to be much more familiar with hands-on technologies such as C and Python Programming Language, solving problems using algorithms, and you’ll have some insight into how computers use memory to store data, and some insight into Web Development.</p>
+
+<p>Also if you complete the course and score at least 70% for each assignments, you’ll get an <a href="https://cs50.harvard.edu/x/2021/certificate/">E-Certificate</a>. My favorite part is that it used to hosted under <a href="harvard.edu">harvard.edu’s subdomain</a>. But I recently moved under <a href="cs50.io">cs50.io</a> instead. But you can still hyperlinks to harvard’s and it will redirect to cs50’s. Still, I do like the fact that it’s associated with Harvard. It brings more leverage aside from the course itself being one of the best free CS course you could take online.</p>
+
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>CS50 is very worth taking, the lectures are one of the best, and the assignments are challenging.
+About difficulty, I’m going to agree with what most people say: CS50 is rather time consuming than difficult. You’re expected to solve way more difficult problems in the Problem Sets than what you get from the Lecture.</p>]]></content><author><name>Kelvin Valencio</name></author><category term="en" /><summary type="html"><![CDATA[I just completed CS50x, and I will share to you what you need to know about the course.]]></summary></entry><entry><title type="html">My Very First Post</title><link href="http://localhost:4000/en/2021/12/06/my-very-first-post.html" rel="alternate" type="text/html" title="My Very First Post" /><published>2021-12-06T00:35:00+07:00</published><updated>2021-12-06T00:35:00+07:00</updated><id>http://localhost:4000/en/2021/12/06/my-very-first-post</id><content type="html" xml:base="http://localhost:4000/en/2021/12/06/my-very-first-post.html"><![CDATA[<p>Hello, world! This is my very first post. It took a while to set up this Github Page along with the Jekyll tool, granted, I’m not a very fast learner. While I try getting used to this markdown syntax, I shall tell the world a little about myself in this very first post.</p>
+
+<h1 id="me--it">Me &amp; IT</h1>
+<p><img src="https://i.imgur.com/NsDWPsR.png" width="100" height="200" /><br />
+My name is Kelvin, I’m a college student majoring Information Systems. I’m interested in System Administration, Computer &amp; Cyber Security, and more. I recently found board/microcontroller programming interesting, so I might take a peek into that as well.
+My fascination in IT started when I got my first Android phone where I started to learn about modding and re-flashing ROMs. From there I moved on into more things that are IT related.</p>
+
+<h1 id="me--other-than-it">Me &amp; other than IT</h1>
+<p>When I’m not behind a computer monitor, I enjoy riding motorcycle, playing piano, and violin.</p>]]></content><author><name>Kelvin Valencio</name></author><category term="en" /><summary type="html"><![CDATA[Hello, world! This is my very first post. It took a while to set up this Github Page along with the Jekyll tool, granted, I’m not a very fast learner. While I try getting used to this markdown syntax, I shall tell the world a little about myself in this very first post.]]></summary></entry><entry><title type="html">Selamat Datang!</title><link href="http://localhost:4000/id/2021/12/05/selamat-datang.html" rel="alternate" type="text/html" title="Selamat Datang!" /><published>2021-12-05T17:33:32+07:00</published><updated>2021-12-05T17:33:32+07:00</updated><id>http://localhost:4000/id/2021/12/05/selamat-datang</id><content type="html" xml:base="http://localhost:4000/id/2021/12/05/selamat-datang.html"><![CDATA[<p>Hai, ini blog bahasa Indonesia!</p>]]></content><author><name>Kelvin Valencio</name></author><category term="id" /><summary type="html"><![CDATA[Hai, ini blog bahasa Indonesia!]]></summary></entry></feed>
